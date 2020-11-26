@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/MyCSS.css">
+    <link rel="stylesheet" href="/css/MyCSS.css">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -45,7 +45,7 @@
 
 <!-- Image Header -->
 <div class="w3-display-container w3-animate-opacity">
-    <img src="images/tiger1.jpg"  style="width:100%;min-height:350px;max-height:600px;">
+    <img src="/images/tiger1.jpg"  style="width:100%;min-height:350px;max-height:600px;">
     <div class="w3-container w3-display-bottomleft w3-margin-bottom">
     </div>
 </div>
@@ -124,7 +124,7 @@
         <p class="w3-center" >Vi er et firma med 20år erfaring indenfor VVS, der går meget op i at levere
             god kvalitet og tage os af vores kunder. Sammentidig prøver vi så vidt muligt kun at bruge lokale
             underleverandøre til vores opgaver. Vi er blandt de bedste inden for branchen og er altid klar
-        24/7, hvis skaden skulle ramme dig</p>
+            24/7, hvis skaden skulle ramme dig</p>
     </div>
 
     <br><br>
@@ -174,9 +174,9 @@
 
 
 
-<!-- Kontakt Container -->
-<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
-    <div class="w3-left w3-padding-64">
+    <!-- Kontakt Container -->
+    <div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+        <div class="w3-left w3-padding-64">
             <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Kontakt os</span></div>
             <h3>Addresse</h3>
             <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> København NV</p>
@@ -184,43 +184,43 @@
             <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>senthu@live.dk</p>
 
 
-    <!-- Image Header -->
-        <span class="w3-xlarge w3-border-teal w3-bottombar"></span></div>
-        <img src="images/partner.png" class="w3-right"  style="width:70%;min-height:300px;max-height:350px;">
-</div>
+            <!-- Image Header -->
+            <span class="w3-xlarge w3-border-teal w3-bottombar"></span></div>
+        <img src="/images/partner.png" class="w3-right"  style="width:70%;min-height:300px;max-height:350px;">
+    </div>
 
 </div>
 
 
 
-    <script>
-        // Slideshow
-        var slideIndex = 1;
-        showDivs(slideIndex);
+<script>
+    // Slideshow
+    var slideIndex = 1;
+    showDivs(slideIndex);
 
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
 
-        function currentDiv(n) {
-            showDivs(slideIndex = n);
-        }
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
 
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demodots");
-            if (n > x.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = x.length} ;
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" w3-white", "");
-            }
-            x[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " w3-white";
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demodots");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
         }
-    </script>
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" w3-white", "");
+        }
+        x[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " w3-white";
+    }
+</script>
 </body>
 </html>

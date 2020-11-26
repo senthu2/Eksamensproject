@@ -27,6 +27,10 @@ public class Project {
         this.gallery = gallery;
     }
 
+    public Project(){
+
+    }
+
     public int getId() {
         return id;
     }
