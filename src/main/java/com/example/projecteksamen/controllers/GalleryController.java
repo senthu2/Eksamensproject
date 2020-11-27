@@ -20,7 +20,7 @@ public class GalleryController {
 
     @GetMapping("galleryIndex")
     public String gallery(Model model){
-        model.addAttribute("gallery", galleryService.fetchAll());
+        model.addAttribute("galleries", galleryService.fetchAll());
         return "gallery/galleryIndex";
     }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -50,122 +50,46 @@
     </div>
 </div>
 
-
-<!-- Grid Beskrivel af deres ydelser -->
-<div class="w3-row w3-container">
-    <div class="w3-center w3-padding-64">
-        <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Hvad tilbyder vi</span>
-    </div>
-    <div class="w3-col l3 m6 w3-light-grey w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
-    </div>
-
-    <div class="w3-col l3 m6 w3-grey w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
-    </div>
-
-    <div class="w3-col l3 m6 w3-dark-grey w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
-    </div>
-
-    <div class="w3-col l3 m6 w3-black w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
+    <!-- Grid -->
+<div class="w3-col s11 w3-container w3-cell-row">
+    <div th:each="gallery: ${galleries}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
+        <img class="w3-image" src="" th:src="@{${'/images/' + gallery.imgURL}}" alt="Missing image">
+        <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${gallery.category} == null" th:text="${gallery.category}" ></h3>
+        <table class="w3-table w3-bordered">
+            <tr>
+                <td class="tData"><strong>Description:</strong></td>
+                <td class="tData" th:text = "${gallery.description} ?: 'None'"></td>
+            </tr>
+        </table>
+<!--        <div class="w3-row">-->
+<!--            <a th:href="@{/activity/{id}/equipment(id=${activity.id})}" class="w3-button w3-btn w3-col" style="backdrop-filter: blur(5px)">Equipment</a>-->
+<!--            <a th:href="'/booking/book?id=' + ${activity.id}" class="w3-button w3-btn w3-col" >Book Activity</a>-->
+<!--        </div>-->
     </div>
 </div>
 
+<!--<div class="w3-row-padding" id="about">-->
 
-<!-- Content -->
-<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+<!--    <div th:each="gallery: ${galleries}" class="w3-third w3-margin-bottom">-->
+<!--        <div class="w3-card-4">-->
+<!--            <img class="w3-image" src="" th:src="@{${'/images/' + gallery.imgURL}}" alt="Missing image">-->
+<!--            <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${gallery.category} == null" th:text="${gallery.category}" ></h3>-->
+<!--&lt;!&ndash;            <img src="images/person4.jpg"  style="width:100%">&ndash;&gt;-->
 
-    <div class="w3-panel">
-        <h1><b>Projekter vi er ekstra stolte af</b></h1>
-    </div>
-
-    <!-- Slideshow -->
-    <div class="w3-container">
-        <div class="w3-display-container mySlides">
-            <img src="images/køkken3.jpg" style="width:100%">
-        </div>
-        <div class="w3-display-container mySlides">
-            <img src="images/køkken2.jpg" style="width:100%">
-        </div>
-        <div class="w3-display-container mySlides">
-            <img src="images/køkken4.jpg" style="width:100%">
-        </div>
-
-        <!-- Slideshow next/previous buttons -->
-        <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
-            <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
-            <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
-
-            <div class="w3-center">
-                <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-                <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-                <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-            </div>
-        </div>
-    </div>
-
-
-    <br> <br>
-
-
-    <!-- Firmaet -->
-    <div class="w3-center w3-padding-64">
-        <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Hvem er vi</span>
-    </div>
-
-    <div class="w3-light-grey w3-container w3-padding-16 w3-center">
-        <h3 class="w3-center">VVS Abrahamsen</h3>
-        <p class="w3-center" >Vi er et firma med 20år erfaring indenfor VVS, der går meget op i at levere
-            god kvalitet og tage os af vores kunder. Sammentidig prøver vi så vidt muligt kun at bruge lokale
-            underleverandøre til vores opgaver. Vi er blandt de bedste inden for branchen og er altid klar
-            24/7, hvis skaden skulle ramme dig</p>
-    </div>
-
-    <br><br>
-
-
-    <!-- Grid -->
-    <div class="w3-row-padding" id="about">
-
-        <div class="w3-third w3-margin-bottom">
-            <div class="w3-card-4">
-                <img src="images/person4.jpg"  style="width:100%">
-                <div class="w3-container">
-                    <h3>Bill Gates</h3>
-                    <p class="w3-opacity">CEO & Founder</p>
-                    <p>Jeg er ejer af Windows</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="w3-third w3-margin-bottom">
-            <div class="w3-card-4">
-                <img src="images/person2.jpg"  style="width:100%">
-                <div class="w3-container">
-                    <h3>The ROCK</h3>
-                    <p class="w3-opacity">VVS Mand</p>
-                    <p>Mit navn er THE ROCK og har 20 års erfaring inden for VVS</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="w3-third w3-margin-bottom">
-            <div class="w3-card-4">
-                <img src="images/person3.png" style="width:100%">
-                <div class="w3-container">
-                    <h3>Obama</h3>
-                    <p class="w3-opacity">President of USA</p>
-                    <p>Jeg har været præsident af USA</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--&lt;!&ndash;            <div class="w3-container">&ndash;&gt;-->
+<!--&lt;!&ndash;                <h3>Bill Gates</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p class="w3-opacity">CEO & Founder</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>Jeg er ejer af Windows</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            <table class="w3-table w3-bordered">-->
+<!--                <tr>-->
+<!--                    <td class="tData"><strong>Description:</strong></td>-->
+<!--                    <td class="tData" th:text = "${gallery.description} ?: 'None'"></td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
     <div class="w3-light-grey w3-container w3-padding-16 w3-center">
         <h3 class="w3-center">VVS Abrahamsen</h3>
