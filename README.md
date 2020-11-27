@@ -1,2 +1,2 @@
 # Eksamensproject
-If you see this the webhook worked. It really did!!!
+If you see this the webhook worked. It really did
