@@ -33,28 +33,28 @@ public class Gallery {
      * hvis ikke fjernes Equipment objektet fra databasen næste gang der bliver kaldt på databasen
      */
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gallery")
-    private List<Project> project = new ArrayList<>();
+    private List<Gitem> gitem = new ArrayList<>();
 
-    public void addProject(Project newProject){
-        project.add(newProject);
-        newProject.setGallery(this);
+    public void addGitem(Gitem newGitem){
+        newGitem.setGallery(this);
+        gitem.add(newGitem);
     }
 
-    public void removeProject(Project oldProject){
-        project.remove(oldProject);
-        oldProject.setGallery(null);
+    public void removeGitem(Gitem oldGitem){
+        gitem.remove(oldGitem);
+        oldGitem.setGallery(null);
     }
 
     /** Constructors + getters og setters */
     public Gallery() {
     }
 
-    public Gallery(Integer id, String category, String imgURL, String description, List<Project> project) {
+    public Gallery(Integer id, String category, String imgURL, String description, List<Gitem> gitem) {
         this.id = id;
         this.category = category;
         this.imgURL = imgURL;
         this.description = description;
-        this.project = project;
+        this.gitem = gitem;
     }
 
     public Integer getId() {
@@ -89,11 +89,11 @@ public class Gallery {
         this.description = description;
     }
 
-    public List<Project> getProject() {
-        return project;
+    public List<Gitem> getGitem() {
+        return gitem;
     }
 
-    public void setProject(List<Project> project) {
-        this.project = project;
+    public void setGitem(List<Gitem> gitem) {
+        this.gitem = gitem;
     }
 }

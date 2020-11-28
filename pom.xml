@@ -12,7 +12,7 @@
     <artifactId>projecteksamen</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>projecteksamen</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Demo gitem for Spring Boot</description>
 
     <properties>
         <java.version>11</java.version>

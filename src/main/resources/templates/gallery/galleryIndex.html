@@ -50,6 +50,9 @@
     </div>
 </div>
 
+<div class="w3-row">
+    <a href="/gallery/create">Add New Gallery</a>
+</div>
     <!-- Grid -->
 <div class="w3-col s11 w3-container w3-cell-row">
     <div th:each="gallery: ${galleries}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
@@ -57,39 +60,35 @@
         <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${gallery.category} == null" th:text="${gallery.category}" ></h3>
         <table class="w3-table w3-bordered">
             <tr>
+                <td type="hidden" th:text = "${gallery.id} ?: 'None'"></td>
                 <td class="tData"><strong>Description:</strong></td>
                 <td class="tData" th:text = "${gallery.description} ?: 'None'"></td>
             </tr>
         </table>
-<!--        <div class="w3-row">-->
-<!--            <a th:href="@{/activity/{id}/equipment(id=${activity.id})}" class="w3-button w3-btn w3-col" style="backdrop-filter: blur(5px)">Equipment</a>-->
-<!--            <a th:href="'/booking/book?id=' + ${activity.id}" class="w3-button w3-btn w3-col" >Book Activity</a>-->
-<!--        </div>-->
+        <div class="w3-row">
+            <a th:href="'/gallery/delete?id=' + ${gallery.id}" class="w3-btn w3-blue-grey" onclick="reCheck(this.parentNode.parentNode, this.value)">Delete</a>
+<!--            <button type="button" name="id" th:value="${gallery.getId()}" class="w3-btn w3-blue-grey" onclick="reCheck(this.parentNode.parentNode, this.value)">Delete</button>-->
+<!--            <a th:href="@{/gallery/{id}/gallery(id=${gallery.id})}" class="w3-button w3-btn w3-col" style="backdrop-filter: blur(5px)">Equipment</a>-->
+            <a th:href="'/gallery/edit?id=' + ${gallery.id}" class="w3-button w3-btn w3-col" >Edit</a>
+        </div>
     </div>
 </div>
 
-<!--<div class="w3-row-padding" id="about">-->
-
-<!--    <div th:each="gallery: ${galleries}" class="w3-third w3-margin-bottom">-->
-<!--        <div class="w3-card-4">-->
-<!--            <img class="w3-image" src="" th:src="@{${'/images/' + gallery.imgURL}}" alt="Missing image">-->
-<!--            <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${gallery.category} == null" th:text="${gallery.category}" ></h3>-->
-<!--&lt;!&ndash;            <img src="images/person4.jpg"  style="width:100%">&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div class="w3-container">&ndash;&gt;-->
-<!--&lt;!&ndash;                <h3>Bill Gates</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;                <p class="w3-opacity">CEO & Founder</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                <p>Jeg er ejer af Windows</p>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            <table class="w3-table w3-bordered">-->
-<!--                <tr>-->
-<!--                    <td class="tData"><strong>Description:</strong></td>-->
-<!--                    <td class="tData" th:text = "${gallery.description} ?: 'None'"></td>-->
-<!--                </tr>-->
-<!--            </table>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<!-- Modal for delete -->
+<div class="w3-modal w3-card-4" id="modal">
+    <div class="w3-modal-content w3-center w3-round-xxlarge" id="modCont">
+        <div class="w3-card w3-pink w3-row">
+            <h1>Are You Sure?</h1>
+        </div>
+        <div class="w3-row w3-container w3-center">
+            <button style="margin: 20px 0px;" class="w3-button w3-red w3-col w3-half" id="confirm" onclick="remove(this.value)">Delete!</button>
+            <button style="margin: 20px 0px;" class="w3-button w3-blue w3-col w3-half" id="deny" onclick="$('#modal')[0].style.display='none'">No! Go Back</button>
+        </div>
+        <div class="row">
+            <p class="w3-text-teal">This Change Is Permanent</p>
+        </div>
+    </div>
+</div>
 
     <div class="w3-light-grey w3-container w3-padding-16 w3-center">
         <h3 class="w3-center">VVS Abrahamsen</h3>
@@ -114,8 +113,6 @@
     </div>
 
 </div>
-
-
 
 <script>
     // Slideshow

@@ -3,39 +3,39 @@ package com.example.projecteksamen.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "g_item")
-public class Project {
+@Table(name = "p_item")
+public class Pitem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "g_item_id")
-    private int id;
+    @Column(name = "p_item_id")
+    private Integer id;
 
-    @Column(name = "g_item_name")
+    @Column(name = "p_item_name")
     private String name;
 
-    @Column(name = "g_item_description")
+    @Column(name = "p_item_description")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gallery_id")
-    private Gallery gallery;
+    @JoinColumn(name = "product_cat_id")
+    private ProductCat productCat;
 
-    public Project(String name, String description, Gallery gallery){
+    public Pitem(Integer id, String name, String description, ProductCat productCat) {
+        this.id = id;
         this.name = name;
         this.description = description;
-        this.gallery = gallery;
+        this.productCat = productCat;
     }
 
-    public Project(){
-
+    public Pitem() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,11 +55,13 @@ public class Project {
         this.description = description;
     }
 
-    public Gallery getGallery() {
-        return gallery;
+    public ProductCat getProductCat() {
+        return productCat;
     }
 
-    public void setGallery(Gallery gallery) {
-        this.gallery = gallery;
+    public void setProductCat(ProductCat productCat) {
+        this.productCat = productCat;
     }
 }
+
+

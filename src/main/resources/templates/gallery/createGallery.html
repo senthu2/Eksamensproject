@@ -1,10 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/MyCSS.css">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .w3-tag, .fa {cursor:pointer}
+    .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+  </style>
+
+  <title>Forside</title>
 </head>
 <body>
 
+
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#booking">Booking</a>
+  <a href="#reperation">Reperation</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">Produkter
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Køkken</a>
+      <a href="#">Toilet</a>
+      <a href="#">Bad</a>
+    </div>
+  </div>
+
+  <a href="/gallery/galleryIndex">Galleri</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="#omOs">Om os</a>
+
+</div>
+
+
+<!-- Image Header -->
+<div class="w3-display-container w3-animate-opacity">
+  <img src="/images/tiger1.jpg"  style="width:100%;min-height:350px;max-height:600px;">
+  <div class="w3-container w3-display-bottomleft w3-margin-bottom">
+  </div>
+</div>
+
+<!-- Grid -->
+<div class="w3-container">
+  <form action="/gallery/createGallery" method="post">
+    <div class = "w3-cell-row">
+      <div class = "w3-container w3-cell">
+        <div class="w3-margin w3-card">
+          <header class="w3-container w3-blue"><h2>New Gallery</h2></header>
+          <ul class="w3-ul w3-light-grey">
+            <li>
+              <label>Name:</label>
+              <input class="w3-input" type="text"  th:field="${gallery.category}" required>
+            </li>
+            <!--                        til tilføj billede implementation-->
+            <!--                        <li>-->
+            <input type="hidden" th:field="${gallery.imgURL}">
+            <!--                        </li>-->
+            <li>
+              <label>Description</label>
+              <textarea class="w3-input" rows="8" th:field="${gallery.description}" style="resize: none"></textarea>
+          </ul>
+        </div>
+      </div>
+        <div class="w3-container w3-margin w3-center w3-cell-row">
+          <button type="submit" class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-blue" style="padding: 20px 80px;">Add</button>
+          <a href="/gallery/galleryIndex" class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-red" style="padding: 20px 40px;">Back</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="w3-light-grey w3-container w3-padding-16 w3-center">
+  <h3 class="w3-center">VVS Abrahamsen</h3>
+  <p class="w3-center" ></p>
+</div>
+
+
+
+<!-- Kontakt Container -->
+<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+  <div class="w3-left w3-padding-64">
+    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Kontakt os</span></div>
+    <h3>Addresse</h3>
+    <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> København NV</p>
+    <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>62614880</p>
+    <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>senthu@live.dk</p>
+
+
+    <!-- Image Header -->
+    <span class="w3-xlarge w3-border-teal w3-bottombar"></span></div>
+  <img src="/images/partner.png" class="w3-right"  style="width:70%;min-height:300px;max-height:350px;">
+</div>
+
+</div>
+
+
+
+<script>
+  // Slideshow
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demodots");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length} ;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" w3-white", "");
+    }
+    x[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " w3-white";
+  }
+</script>
 </body>
 </html>
