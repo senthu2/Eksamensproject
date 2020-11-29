@@ -40,4 +40,29 @@ public class ProductController {
         productService.save(product);
         return "redirect:/product/productIndex";
     }
+
+    @PostMapping("/update")
+    public String commitEdit(@ModelAttribute("product") Product product, @RequestParam int id){
+
+        product.setCategory(product.getCategory());
+        product.setDescription(product.getDescription());
+        product.setImgURL(product.getImgURL());
+
+        productService.save(product);
+        return "redirect:/product/productIndex";
+    }
+
+    @GetMapping("/edit")
+    public String edit(Model model, @RequestParam int id){
+        model.addAttribute("product", productService.fetchById(id));
+        return "product/editProduct";
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody()
+    public String deleteProduct(@RequestParam int id){
+        Product product = productService.fetchById(id);
+        productService.delete(product);
+        return product.getCategory()+"\n"+product.getDescription()+" /"+product.getImgURL()+"\nDeleted";
+    }
 }

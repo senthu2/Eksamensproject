@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/javascript/deleteDisplay.js"></script>
 
     <style>
         .w3-tag, .fa {cursor:pointer}
@@ -30,7 +31,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="/product/productIndex">Køkken</a>
+            <a href="#">Køkken</a>
             <a href="#">Toilet</a>
             <a href="#">Bad</a>
         </div>
@@ -51,7 +52,7 @@
 </div>
 
 <div class="w3-row">
-    <a href="/product/create">Add New Product</a>
+    <a href="/product/create">Add New Product Category</a>
 </div>
 <!-- Grid -->
 <div class="w3-col s11 w3-container w3-cell-row">
@@ -66,13 +67,24 @@
             </tr>
         </table>
         <div class="w3-row">
-            <a th:href="'/product/edit?id=' + ${product.getId()}" class="w3-btn w3-bar w3-blue-grey" style="width: 100%;">Edit</a>
-            <a href="/edit">Up</a>
+            <a th:href="'/product/delete?id=' + ${product.id}" class="w3-btn w3-blue-grey" onclick="reCheck(this.parentNode.parentNode, this.value)">Delete</a>
+            <a th:href="'/product/edit?id=' + ${product.id}" class="w3-button w3-btn w3-col" >Edit</a>
         </div>
-        <div class="w3-row">
-            <a href="@{'/edit' + ${product.id}}" class="w3-btn w3-bar w3-blue-grey" style="width: 100%;">Update</a>
-            <!--            <a th:href="@{/activity/{id}/equipment(id=${activity.id})}" class="w3-button w3-btn w3-col" style="backdrop-filter: blur(5px)">Equipment</a>-->
-            <!--            <a th:href="'/booking/book?id=' + ${activity.id}" class="w3-button w3-btn w3-col" >Book Activity</a>-->
+    </div>
+</div>
+
+<!-- Modal for delete -->
+<div class="w3-modal w3-card-4" id="modal">
+    <div class="w3-modal-content w3-center w3-round-xxlarge" id="modCont">
+        <div class="w3-card w3-pink w3-row">
+            <h1>Are You Sure?</h1>
+        </div>
+        <div class="w3-row w3-container w3-center">
+            <button style="margin: 20px 0px;" class="w3-button w3-red w3-col w3-half" id="confirm" onclick="remove(this.value)">Delete!</button>
+            <button style="margin: 20px 0px;" class="w3-button w3-blue w3-col w3-half" id="deny" onclick="$('#modal')[0].style.display='none'">No! Go Back</button>
+        </div>
+        <div class="row">
+            <p class="w3-text-teal">This Change Is Permanent</p>
         </div>
     </div>
 </div>
@@ -100,8 +112,6 @@
 </div>
 
 </div>
-
-
 
 <script>
     // Slideshow

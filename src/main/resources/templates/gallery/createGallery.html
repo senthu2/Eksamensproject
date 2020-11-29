@@ -62,13 +62,14 @@
               <label>Name:</label>
               <input class="w3-input" type="text"  th:field="${gallery.category}" required>
             </li>
-            <!--                        til tilføj billede implementation-->
-            <!--                        <li>-->
-            <input type="hidden" th:field="${gallery.imgURL}">
-            <!--                        </li>-->
             <li>
               <label>Description</label>
               <textarea class="w3-input" rows="8" th:field="${gallery.description}" style="resize: none"></textarea>
+            </li>
+            <li>
+              <label>Image:</label>
+              <textarea class="w3-input" rows="8" th:field="${gallery.imgURL}" style="resize: none"></textarea>
+            </li>
           </ul>
         </div>
       </div>

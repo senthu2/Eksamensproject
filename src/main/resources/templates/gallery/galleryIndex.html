@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/javascript/deleteDisplay.js"></script>
 
     <style>
         .w3-tag, .fa {cursor:pointer}
@@ -67,8 +68,6 @@
         </table>
         <div class="w3-row">
             <a th:href="'/gallery/delete?id=' + ${gallery.id}" class="w3-btn w3-blue-grey" onclick="reCheck(this.parentNode.parentNode, this.value)">Delete</a>
-<!--            <button type="button" name="id" th:value="${gallery.getId()}" class="w3-btn w3-blue-grey" onclick="reCheck(this.parentNode.parentNode, this.value)">Delete</button>-->
-<!--            <a th:href="@{/gallery/{id}/gallery(id=${gallery.id})}" class="w3-button w3-btn w3-col" style="backdrop-filter: blur(5px)">Equipment</a>-->
             <a th:href="'/gallery/edit?id=' + ${gallery.id}" class="w3-button w3-btn w3-col" >Edit</a>
         </div>
     </div>

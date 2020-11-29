@@ -35,39 +35,43 @@ public class GalleryController {
     public String createGallery(@ModelAttribute("gallery") Gallery gallery){
         gallery.setCategory(gallery.getCategory());
         gallery.setDescription(gallery.getDescription());
-        galleryService.save(gallery);
-        return "redirect:/gallery/galleryIndex";
-    }
-
-//    @GetMapping("/edit")
-//    public String editGallery(Model model, @PathVariable(value = "id") int id){
-//        model.addAttribute("gallery", galleryService.fetchById(id));
-//        return "gallery/editGallery";
-//    }
-
-    @GetMapping("/edit")
-    public String editGallery(Model model, @RequestParam int id){
-        model.addAttribute("gallery", galleryService.fetchById(id));
-        return "gallery/editGallery";
-    }
-
-    @PostMapping("/update")
-    public String commitEdit(@ModelAttribute("gallery") Gallery gallery){
-
-        gallery.setCategory(gallery.getCategory());
-        gallery.setDescription(gallery.getDescription());
         gallery.setImgURL(gallery.getImgURL());
         galleryService.save(gallery);
         return "redirect:/gallery/galleryIndex";
     }
 
+    @PostMapping("/update")
+    public String commitEdit(@ModelAttribute("gallery") Gallery gallery, @RequestParam int id){
+
+        //changes
+        gallery.setCategory(gallery.getCategory());
+        gallery.setDescription(gallery.getDescription());
+        gallery.setImgURL(gallery.getImgURL());
+
+        galleryService.save(gallery);
+        return "redirect:/gallery/galleryIndex";
+    }
+
+    /*------------------------------------------
+    Responsible for editing of activity
+     -------------------------------------------*/
+    @GetMapping("/edit")
+    public String edit(Model model, @RequestParam int id){
+        model.addAttribute("gallery", galleryService.fetchById(id));
+        return "gallery/editGallery";
+    }
+
     @RequestMapping("/delete")
     @ResponseBody()
-    public String deleteBooking(@RequestParam int id) {
+    public String deleteGallery(@RequestParam int id) {
         Gallery gallery = galleryService.fetchById((id));
         galleryService.delete(gallery);
         return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
     }
+
+    /*------------------------------------------
+                Gallery items methods
+     -------------------------------------------*/
 
     @GetMapping("/{id}/gitem")
     public String viewGitem(Model model, @PathVariable int id){
@@ -93,6 +97,4 @@ public class GalleryController {
         galleryService.save(gallery);
         return "redirect:/gallery/{id}/gitem";
     }
-
-    //update
 }

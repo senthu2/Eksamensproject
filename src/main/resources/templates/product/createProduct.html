@@ -52,34 +52,34 @@
 
 <!-- Grid -->
 <div class="w3-container">
-    <form action="/gallery/update" method="post" >
-        <input type="hidden" name="id" th:value="${gallery.getId()}">
+    <form action="/product/createProduct" method="post">
         <div class = "w3-cell-row">
             <div class = "w3-container w3-cell">
                 <div class="w3-margin w3-card">
-                    <header class="w3-container w3-blue"><h2>Gallery</h2></header>
+                    <header class="w3-container w3-blue"><h2>New Product</h2></header>
                     <ul class="w3-ul w3-light-grey">
                         <li>
-                            <label>Category name:</label>
-                            <input name="category" class="w3-input" type="text"  th:value="${gallery.getCategory()} ?: 0">
+                            <label>Name:</label>
+                            <input class="w3-input" type="text"  th:field="${product.category}" required>
                         </li>
                         <li>
-                            <label>Description:</label>
-                            <input name="description" class="w3-input" type="text"  th:value="${gallery.getDescription()} ?: 0">
+                            <label>Description</label>
+                            <textarea class="w3-input" rows="8" th:field="${product.description}" style="resize: none"></textarea>
                         </li>
                         <li>
                             <label>Image:</label>
-                            <input name="imgURL" class="w3-input" type="text"  th:value="${gallery.getImgURL()} ?: 0">
+                            <textarea class="w3-input" rows="8" th:field="${product.imgURL}" style="resize: none"></textarea>
                         </li>
                     </ul>
                 </div>
-                <div class="w3-container w3-margin w3-center w3-cell-row">
-                    <button class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-blue" style="padding: 20px 80px;">Update</button>
-                    <a href="/gallery/galleryIndex" class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-red" style="padding: 20px 40px;">Back</a>
-                </div>
+            </div>
+            <div class="w3-container w3-margin w3-center w3-cell-row">
+                <button type="submit" class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-blue" style="padding: 20px 80px;">Add</button>
+                <a href="/product/productIndex" class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-red" style="padding: 20px 40px;">Back</a>
             </div>
         </div>
-    </form>
+</div>
+</form>
 </div>
 
 <div class="w3-light-grey w3-container w3-padding-16 w3-center">
