@@ -63,6 +63,7 @@ public class ProductController {
     public String deleteProduct(@RequestParam int id){
         Product product = productService.fetchById(id);
         productService.delete(product);
-        return product.getCategory()+"\n"+product.getDescription()+" /"+product.getImgURL()+"\nDeleted";
+        return "redirect:/gallery/galleryIndex";
+//        return product.getCategory()+"\n"+product.getDescription()+" /"+product.getImgURL()+"\nDeleted";
     }
 }

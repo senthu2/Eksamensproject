@@ -9,7 +9,7 @@ public class Gitem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "g_item_id")
-    private int id;
+    private Integer id;
 
     @Column(name = "g_item_name")
     private String name;
@@ -17,25 +17,30 @@ public class Gitem {
     @Column(name = "g_item_description")
     private String description;
 
+    @Column(name = "g_item_imgURL")
+    private String gitemURL;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gallery_id")
     private Gallery gallery;
-
-    public Gitem(String name, String description, Gallery gallery){
-        this.name = name;
-        this.description = description;
-        this.gallery = gallery;
-    }
 
     public Gitem(){
 
     }
 
-    public int getId() {
+    public Gitem(Integer id, String name, String description, String gitemURL, Gallery gallery){
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.gitemURL = gitemURL;
+        this.gallery = gallery;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,6 +58,14 @@ public class Gitem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getGitemURL() {
+        return gitemURL;
+    }
+
+    public void setGitemURL(String gitemURL) {
+        this.gitemURL = gitemURL;
     }
 
     public Gallery getGallery() {
