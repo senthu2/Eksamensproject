@@ -17,4 +17,8 @@ public class HomeController {
     public String kontaktInfo(){
         return "KontaktInfo";
     }
+    @GetMapping("/omOs")
+    public String omOs(){
+        return "omOs";
+    }
 }
