@@ -20,8 +20,8 @@ public class Gitem {
     @Column(name = "g_item_imgURL")
     private String gitemURL;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "gallery_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "gallery_id", nullable = false)
     private Gallery gallery;
 
     public Gitem(){

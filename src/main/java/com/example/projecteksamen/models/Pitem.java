@@ -14,6 +14,9 @@ public class Pitem {
     @Column(name = "p_item_name")
     private String name;
 
+    @Column(name = "p_item_imgURL")
+    private String pitemURL;
+
     @Column(name = "p_item_description")
     private String description;
 
@@ -21,9 +24,10 @@ public class Pitem {
     @JoinColumn(name = "product_cat_id")
     private ProductCat productCat;
 
-    public Pitem(Integer id, String name, String description, ProductCat productCat) {
+    public Pitem(Integer id, String name, String pitemURL, String description, ProductCat productCat) {
         this.id = id;
         this.name = name;
+        this.pitemURL = pitemURL;
         this.description = description;
         this.productCat = productCat;
     }
@@ -45,6 +49,14 @@ public class Pitem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPitemURL() {
+        return pitemURL;
+    }
+
+    public void setPitemURL(String pitemURL) {
+        this.pitemURL = pitemURL;
     }
 
     public String getDescription() {

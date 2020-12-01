@@ -1,6 +1,6 @@
 package com.example.projecteksamen.controllers;
 
-import com.example.projecteksamen.models.Product;
+import com.example.projecteksamen.models.*;
 import com.example.projecteksamen.services.PitemService;
 import com.example.projecteksamen.services.ProductCatService;
 import com.example.projecteksamen.services.ProductService;
@@ -65,5 +65,121 @@ public class ProductController {
         productService.delete(product);
         return "redirect:/gallery/galleryIndex";
 //        return product.getCategory()+"\n"+product.getDescription()+" /"+product.getImgURL()+"\nDeleted";
+    }
+
+        /*------------------------------------------
+                    ProductCat methods
+        -------------------------------------------*/
+
+    @GetMapping("/{id}/productCat")
+    public String viewProductCat(Model model, @PathVariable int id){
+        Product product = productService.fetchById(id);
+        model.addAttribute("productCat", product.getProductCat());
+        model.addAttribute("product", product);
+        model.addAttribute("newProductCat", new ProductCat());
+        return "productCat/productCat";
+    }
+
+    @RequestMapping("/createC")
+    public String createC(Model model){
+        ProductCat productCat = new ProductCat();
+        model.addAttribute("cat", productCat);
+        return "productCat/createProductCat";
+    }
+
+    @PostMapping("/createCat")
+    public String createCat(@ModelAttribute("productCat") ProductCat productCat){
+        productCat.setProduct(productCat.getProduct());
+        productCat.setName(productCat.getName());
+        productCat.setDescription(productCat.getDescription());
+        productCat.setCatURL(productCat.getCatURL());
+        productCatService.save(productCat);
+        return "redirect:/product/productIndex";
+    }
+
+    @GetMapping("/editCat")
+    public String editCat(Model model, @RequestParam int id){
+        model.addAttribute("productCat", productCatService.fetchById(id));
+        return "productCat/editProductCat";
+    }
+
+    @PostMapping("/updateCat")
+    public String commitEditCat(@ModelAttribute("productCat") ProductCat productCat, @RequestParam int id){
+
+        //changes
+        productCat.setProduct(productCat.getProduct());
+        productCat.setName(productCat.getName());
+        productCat.setDescription(productCat.getDescription());
+        productCat.setCatURL(productCat.getCatURL());
+
+        productCatService.save(productCat);
+        return "redirect:/product/productIndex";
+    }
+
+    @RequestMapping("/deleteCat")
+    @ResponseBody()
+    public String deleteCat(@RequestParam int id) {
+        ProductCat productCat = productCatService.fetchById((id));
+        productCatService.delete(productCat);
+        return "redirect:/product/productIndex";
+//        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
+    }
+
+            /*------------------------------------------
+                        Product item methods
+            -------------------------------------------*/
+
+    @GetMapping("/{id}/pitem")
+    public String viewPitem(Model model, @PathVariable int id){
+        ProductCat productCat = productCatService.fetchById(id);
+        model.addAttribute("pitem", productCat.getPitem());
+        model.addAttribute("productCat", productCat);
+        model.addAttribute("newPitem", new Pitem());
+        return "pitem/pitem";
+    }
+
+    @RequestMapping("/createP")
+    public String createP(Model model){
+        Pitem pitem = new Pitem();
+        model.addAttribute("pitem", pitem);
+        return "pitem/createPitem";
+    }
+
+    @PostMapping("/createPitem")
+    public String createPitem(@ModelAttribute("pitem") Pitem pitem){
+        pitem.setProductCat(pitem.getProductCat());
+        pitem.setName(pitem.getName());
+        pitem.setDescription(pitem.getDescription());
+        pitem.setPitemURL(pitem.getPitemURL());
+        pitemService.save(pitem);
+        return "redirect:/product/productIndex";
+    }
+
+    @GetMapping("/editP")
+    public String editP(Model model, @RequestParam int id){
+        model.addAttribute("pitem", pitemService.fetchById(id));
+        return "pitem/editPitem";
+    }
+
+    @PostMapping("/updateP")
+    public String commitEditP(@ModelAttribute("pitem") Pitem pitem, @RequestParam int id){
+
+        //changes
+        pitem.setName(pitem.getName());
+        pitem.setDescription(pitem.getDescription());
+        pitem.setPitemURL(pitem.getPitemURL());
+        pitem.setProductCat(pitem.getProductCat());
+
+        pitemService.save(pitem);
+        return "redirect:/product/productIndex";
+    }
+
+    @RequestMapping("/deletePitem")
+    @ResponseBody()
+    public String deletePitem(@RequestParam int id) {
+        Pitem pitem = pitemService.fetchById((id));
+        pitemService.delete(pitem);
+        return "redirect:/product/productIndex";
+//        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
     }
 }

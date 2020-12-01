@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/javascript/deleteDisplay.js"></script>
 
     <style>
         .w3-tag, .fa {cursor:pointer}
@@ -51,43 +50,40 @@
     </div>
 </div>
 
-<div class="w3-row">
-    <a href="/product/create">Add New Product Category</a>
-</div>
 <!-- Grid -->
-<div class="w3-col s11 w3-container w3-cell-row">
-    <div th:each="product: ${products}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
-        <img class="w3-image" src="" th:src="@{${'/images/' + product.imgURL}}" alt="Missing image">
-        <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${product.category} == null" th:text="${product.category}" ></h3>
-        <table class="w3-table w3-bordered">
-            <tr>
-                <td type="hidden" th:text = "${product.id} ?: 'None'"></td>
-                <td class="tData"><strong>Description:</strong></td>
-                <td class="tData" th:text = "${product.description} ?: 'None'"></td>
-            </tr>
-        </table>
-        <div class="w3-row">
-            <a th:href="@{/product/{id}/productCat(id=${product.id})}" class="w3-button w3-btn w3-col" style="backdrop-filter: blur(5px)">Enter</a>
-            <a th:href="'/product/delete?id=' + ${product.id}" class="w3-btn w3-blue-grey" onclick="reCheck(this.parentNode.parentNode, this.value)">Delete</a>
-            <a th:href="'/product/edit?id=' + ${product.id}" class="w3-button w3-btn w3-col" >Edit</a>
+<div class="w3-container">
+    <form action="/product/createCat" method="post">
+        <div class = "w3-cell-row">
+            <div class = "w3-container w3-cell">
+                <div class="w3-margin w3-card">
+                    <header class="w3-container w3-blue"><h2>New Product Category</h2></header>
+                    <ul class="w3-ul w3-light-grey">
+                        <li>
+                            <label>Gallery id:</label>
+                            <input class="w3-input" type="text"  th:field="${cat.product}" required>
+                        </li>
+                        <li>
+                            <label>Name:</label>
+                            <input class="w3-input" type="text"  th:field="${cat.name}" required>
+                        </li>
+                        <li>
+                            <label>Description</label>
+                            <textarea class="w3-input" rows="8" th:field="${cat.description}" style="resize: none"></textarea>
+                        </li>
+                        <li>
+                            <label>Image:</label>
+                            <textarea class="w3-input" rows="8" th:field="${cat.catURL}" style="resize: none"></textarea>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w3-container w3-margin w3-center w3-cell-row">
+                <button type="submit" class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-blue" style="padding: 20px 80px;">Add</button>
+                <a href="/product/productIndex" class="w3-margin w3-large w3-cell-middle w3-btn w3-round-large w3-red" style="padding: 20px 40px;">Back</a>
+            </div>
         </div>
-    </div>
 </div>
-
-<!-- Modal for delete -->
-<div class="w3-modal w3-card-4" id="modal">
-    <div class="w3-modal-content w3-center w3-round-xxlarge" id="modCont">
-        <div class="w3-card w3-pink w3-row">
-            <h1>Are You Sure?</h1>
-        </div>
-        <div class="w3-row w3-container w3-center">
-            <button style="margin: 20px 0px;" class="w3-button w3-red w3-col w3-half" id="confirm" onclick="remove(this.value)">Delete!</button>
-            <button style="margin: 20px 0px;" class="w3-button w3-blue w3-col w3-half" id="deny" onclick="$('#modal')[0].style.display='none'">No! Go Back</button>
-        </div>
-        <div class="row">
-            <p class="w3-text-teal">This Change Is Permanent</p>
-        </div>
-    </div>
+</form>
 </div>
 
 <div class="w3-light-grey w3-container w3-padding-16 w3-center">
@@ -113,6 +109,8 @@
 </div>
 
 </div>
+
+
 
 <script>
     // Slideshow

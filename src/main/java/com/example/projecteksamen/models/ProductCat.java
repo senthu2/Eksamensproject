@@ -16,6 +16,9 @@ public class ProductCat {
     @Column(name = "product_cat_name")
     private String name;
 
+    @Column(name = "p_cat_image")
+    private String catURL;
+
     @Column(name = "product_cat_description")
     private String description;
 
@@ -41,9 +44,10 @@ public class ProductCat {
     public ProductCat() {
     }
 
-    public ProductCat(Integer id, String name, String description, Product product, List<Pitem> pitem) {
+    public ProductCat(Integer id, String name, String catURL, String description, Product product, List<Pitem> pitem) {
         this.id = id;
         this.name = name;
+        this.catURL = catURL;
         this.description = description;
         this.product = product;
         this.pitem = pitem;
@@ -63,6 +67,14 @@ public class ProductCat {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCatURL() {
+        return catURL;
+    }
+
+    public void setCatURL(String catURL) {
+        this.catURL = catURL;
     }
 
     public String getDescription() {
