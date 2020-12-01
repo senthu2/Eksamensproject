@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Counter</title>
+<link href="index.html">
+
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #192a56;
+        color: #fff;
+        font-family: 'Muli', sans-serif;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin: 0;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.8);
+        letter-spacing: 2px;
+        margin: 0;
+    }
+
+</style>
+<body>
+<p>Antal besøgende på hjemmesiden</p>
+<h1 id="count">0</h1>
+
+
+<script>
+    const countEl = document.getElementById('count');
+
+    updateVisitCount();
+
+    function updateVisitCount() {
+        fetch('https://api.countapi.xyz/info/bobby/james')
+            .then(res => res.json())
+            .then(res => {
+                countEl.innerHTML = res.value;
+            })
+    }
+
+
+
+</script>

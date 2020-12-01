@@ -20,7 +20,7 @@
 
 
 <div class="navbar" style="height: 70px">
-    <a href="#home" style="font-size: 25px">Home</a>
+    <a href="/Counter" style="font-size: 25px">Home</a>
     <a href="#news" style="font-size: 25px">News</a>
     <a href="#booking" style="font-size: 25px">Booking</a>
     <a href="#reperation" style="font-size: 25px">Reperation</a>
@@ -223,4 +223,21 @@
         }
     </script>
 </body>
+
+<script>
+    const countEl = document.getElementById('count');
+
+    updateVisitCount();
+
+    function updateVisitCount() {
+        fetch('https://api.countapi.xyz/update/bobby/james/?amount=1')
+            .then(res => res.json())
+            .then(res => {
+                countEl.innerHTML = res.value;
+            })
+    }
+
+
+
+</script>
 </html>

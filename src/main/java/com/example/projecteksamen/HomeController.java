@@ -21,4 +21,8 @@ public class HomeController {
     public String omOs(){
         return "omOs";
     }
+    @GetMapping("/Counter")
+    public String counter(){
+        return "Counter";
+    }
 }
