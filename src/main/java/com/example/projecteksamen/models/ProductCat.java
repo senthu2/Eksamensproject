@@ -26,8 +26,7 @@ public class ProductCat {
     @JoinColumn(name = "product_id")
     private Product product;
 
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    private List<Pitem> pitem = new ArrayList<>();
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "productCat")
     private List<Pitem> pitem = new ArrayList<>();
 
