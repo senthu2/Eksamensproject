@@ -15,7 +15,8 @@
 }
 .navbar-brand img
 {
-    height: 40px;
+    height: 75px;
+    width: 200px;
     padding-left: 30px;
 }
 .navbar-nav li
@@ -27,11 +28,12 @@
 {
     float: right;
     text-align: left;
+    font-size: 20px;
 
 }
 #Nav-bar ul li a:hover
 {
-    color: #007bff;!important;
+    color: #007bff !important;
 }
 .navbar
 {
@@ -174,3 +176,66 @@
     padding: 10px;
     margin: 15px;
 }
+/*----------Team------------*/
+#team
+{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #555;
+}
+h1
+{
+    text-align: center;
+    color: #555 !important;
+    padding-bottom: 10px;
+}
+h1::after
+{
+    content: '';
+    background: #007bff;
+    display: block;
+    height: 3px;
+    width: 170px;
+    margin: 20px auto 5px;
+}
+.profile-pic
+{
+    margin-top: 25px;
+
+}
+.profile-pic .img-box
+{
+    opacity: 1;
+    display: block;
+    position: relative;
+
+}
+.profile-pic .img-box img
+{
+    filter: grayscale(1);
+
+}
+.profile-pic .img-box img:hover
+{
+    filter: grayscale(0);
+    cursor: pointer;
+}
+.profile-pic h2
+{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #007bff !important;
+}
+.profile-pic h3
+{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.img-responsive
+{
+    width: 225px;
+    height: 300px;
+}
+
