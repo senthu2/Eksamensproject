@@ -3,23 +3,188 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/MyCSS.css">
+    <link rel="stylesheet" href="css/MyCss2.css">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-        .w3-tag, .fa {cursor:pointer}
-        .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://kit.fontawesome.com/4bce0974fa.js" crossorigin="anonymous"></script>
+
+
 
     <title>Forside</title>
 </head>
 <body>
 
+<section id="Nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><img src="images/VVS-Logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Counter">Statistik</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Reperation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/product/productIndex">Produckt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/gallery/galleryIndex">Galleri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/KontaktInfo">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/omOs">Om Os</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
 
-<div class="navbar" style="height: 70px">
+<!-------- Slider  -------->
+<div id="slider">
+
+    <div id="headerSlider" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#headerSlider" data-slide-to="0" class="active"></li>
+            <li data-target="#headerSlider" data-slide-to="1"></li>
+            <li data-target="#headerSlider" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/køkken2.jpg" style="height: 550px;width: 100%" class="d-block img-fluid">
+                <div class="carousel-caption">
+                    <h5>Tidligere Projekter</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/køkken3.jpg" style="height: 550px;width: 100%" class="d-block img-fluid">
+                <div class="carousel-caption">
+                    <h5>Tidligere Projekter</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/køkken4.jpg" style="height: 550px; width: 100%" class="d-block img-fluid">
+                <div class="carousel-caption">
+                    <h5>Tidligere Projekter</h5>
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#headerSlider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#headerSlider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<!--------- OM OS ---------->
+<br> <br>
+    <section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Om Os</h2>
+                <div class="about-content">
+                    VVi er et firma med 20år erfaring indenfor VVS, der går meget op i at levere
+                    god kvalitet og tage os af vores kunder. Sammentidig prøver vi så vidt muligt kun at bruge lokale
+                    underleverandøre til vores opgaver. Vi er blandt de bedste inden for branchen og er altid klar
+                    24/7, hvis skaden skulle ramme dig
+                </div>
+                <button type="button" class="btn btn-primary">læs mere</button>
+            </div>
+            <div class="col-md-6 skills-bar">
+                <p>Tilfredse Kunder</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 80%;">100%</div>
+                </div>
+                <p>Loyalitet</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 80%;">100%</div>
+                </div>
+                <p>Gode priser</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 80%;">100%</div>
+                </div>
+                <p>Tid til snak</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 100%;">120%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+<!------- Services -------->
+<section id="services">
+    <div class="container">
+        <h1>Vi Tilbyder</h1>
+        <div class="row services">
+            <div class="col-md-3 text-center">
+                <div class="icon">
+                    <i class="fas fa-shower"></i>
+                </div>
+                <h3>Badeværelse</h3>
+                <p>Løber toilettet, drypper vandhanen, skal vasken udskiftes,
+                    eller trænger hele badeværelset til en totalrenovering?
+                    Så er VVS Abrahamsen det oplagte valg.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="icon">
+                    <i class="fas fa-faucet"></i>
+                </div>
+                <h3>Køkken Montering</h3>
+                <p> Skal du have et nyt køkken? eller totalrenovering af dit gamle køkken?
+                    Så er VVS Abrahamsen det oplagte valg.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Ejendomservice</h3>
+                <p>Få en fast aftale med din VVS installatør
+                    Vi håndterer alt fra varmestyring til løbende tjek af anlæg og installationer.
+                    Vi udarbejder med glæde et skræddersyet tilbud på jeres ejendom.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="icon">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                <h3>Blikkenslage</h3>
+                <p>Vi løser alle typer opgaver, små som store.
+                    Fra udskiftning af tagrender til beklædning af kviste.
+                    Fra inddækning af skorstene til reparation af facadedækninger.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!--<div class="navbar" style="height: 70px">
     <a href="/Counter" style="font-size: 25px">Home</a>
     <a href="#news" style="font-size: 25px">News</a>
     <a href="#booking" style="font-size: 25px">Booking</a>
@@ -40,76 +205,7 @@
     <a href="/KontaktInfo" style="font-size: 25px">Kontakt</a>
     <a href="/omOs" style="font-size: 25px">Om os</a>
 
-</div>
-
-
-<!-- Image Header -->
-<div class="w3-display-container w3-animate-opacity">
-    <img src="images/tiger1.jpg"  style="width:100%;min-height:300px;max-height:500px;">
-    <div class="w3-container w3-display-bottomleft w3-margin-bottom">
-    </div>
-</div>
-
-
-<!-- Grid Beskrivel af deres ydelser -->
-<div class="w3-row w3-container">
-    <div class="w3-center w3-padding-64">
-        <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Her ses vores ydelser, 123</span>
-    </div>
-    <div class="w3-col l3 m6 w3-light-grey w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
-    </div>
-
-    <div class="w3-col l3 m6 w3-grey w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
-    </div>
-
-    <div class="w3-col l3 m6 w3-dark-grey w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
-    </div>
-
-    <div class="w3-col l3 m6 w3-black w3-container w3-padding-16">
-        <h3>Kategori</h3>
-        <p>Beskrivelse her</p>
-    </div>
-</div>
-
-
-<!-- Content -->
-<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
-
-    <div class="w3-panel">
-        <h1 class="w3-center w3-padding-64"><b>Projekter vi er ekstra stolte af</b></h1>
-    </div>
-
-    <!-- Slideshow -->
-    <div class="w3-container">
-        <div class="w3-display-container mySlides">
-            <img src="images/køkken3.jpg" style="width:100%">
-        </div>
-        <div class="w3-display-container mySlides">
-            <img src="images/køkken2.jpg" style="width:100%">
-        </div>
-        <div class="w3-display-container mySlides">
-            <img src="images/køkken4.jpg" style="width:100%">
-        </div>
-
-        <!-- Slideshow next/previous buttons -->
-        <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
-            <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
-            <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i></div>
-
-            <div class="w3-center">
-                <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-                <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-                <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-            </div>
-        </div>
-    </div>
-
+</div> -->
 
     <br> <br>
 
@@ -131,6 +227,7 @@
 
 
     <!-- Grid -->
+
     <div class="w3-row-padding" id="about">
 
         <div class="w3-third w3-margin-bottom">
@@ -172,56 +269,47 @@
         <p class="w3-center" ></p>
     </div>
 
+<!------- Kontakt ------>
+<section id="contact">
+    <div class="container">
+        <h1>Kontakt Os</h1>
+        <div class="row">
+            <div class="col-md-6">
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Dit Navn">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Telefon nummer">
+                </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="4" placeholder="Besked"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"> Send Besked</button>
+                </form>
+            </div>
+            <div class="col-md-6 contact-info">
+                <div class="follow"><b>Addresse: </b> <i class="fas fa-map-marker-alt"></i> Lygten 65, København NV</div>
+                    <div class="follow"><b>Telefon: </b> <i class="fas fa-phone-volume"></i> 62614880</div>
+                        <div class="follow"><b>Email: </b> <i class="far fa-envelope-open"></i> senthu@live.dk </div>
+                    <div class="follow"><b>CVR: </b><i class="fas fa-building"></i> 233455555523</div>
+            </div>
+        </div>
+    </div>
 
-
-<!-- Kontakt Container -->
-<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
-    <div class="w3-left w3-padding-64">
-            <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Kontakt os</span></div>
-            <h3>Addresse</h3>
-            <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i> København NV</p>
-            <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>62614880</p>
-            <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>senthu@live.dk</p>
-
+</section>
 
     <!-- Image Header -->
+<!--
         <span class="w3-xlarge w3-border-teal w3-bottombar"></span></div>
         <img src="images/partner.png" class="w3-right"  style="width:70%;min-height:300px;max-height:350px;">
 </div>
-
 </div>
+-->
 
-
-
-    <script>
-        // Slideshow
-        var slideIndex = 1;
-        showDivs(slideIndex);
-
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
-
-        function currentDiv(n) {
-            showDivs(slideIndex = n);
-        }
-
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demodots");
-            if (n > x.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = x.length} ;
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" w3-white", "");
-            }
-            x[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " w3-white";
-        }
-    </script>
 </body>
 
 <script>
@@ -230,14 +318,12 @@
     updateVisitCount();
 
     function updateVisitCount() {
-        fetch('https://api.countapi.xyz/update/bobby/james/?amount=1')
+        fetch('https://api.countapi.xyz/update/senthu/senthu/?amount=1')
             .then(res => res.json())
             .then(res => {
                 countEl.innerHTML = res.value;
             })
     }
-
-
 
 </script>
 </html>

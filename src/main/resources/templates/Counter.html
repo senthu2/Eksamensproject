@@ -50,13 +50,12 @@
     updateVisitCount();
 
     function updateVisitCount() {
-        fetch('https://api.countapi.xyz/info/bobby/james')
+        fetch('https://api.countapi.xyz/info/senthu/senthu')
             .then(res => res.json())
             .then(res => {
                 countEl.innerHTML = res.value;
             })
     }
-
-
-
+    
 </script>
+
