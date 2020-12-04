@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/gallery")
 public class GalleryController {
@@ -114,13 +116,33 @@ public class GalleryController {
         gitem.setDescription(gitem.getDescription());
         gitem.setGitemURL(gitem.getGitemURL());
         gitem.setGallery(gitem.getGallery());
-
+//        gitemService.updGitem(gitem.getName(), gitem.getDescription(), gitem.getGitemURL(), gitem.getGallery());
         gitemService.save(gitem);
         return "redirect:/gallery/galleryIndex";
     }
 
+//    @GetMapping("/editG/{id}")
+//    public String editG(Model model, @PathVariable("id") int id){
+//        model.addAttribute("gitem", gitemService.fetchById(id));
+//        return "gitem/editGitem";
+//    }
+//
+//    @PostMapping("/updateG")
+//    public String commitEditG(@ModelAttribute("gitem") Gitem gitem, @RequestParam int id){
+//
+//        //changes
+////        gitem.setName(gitem.getName());
+////        gitem.setDescription(gitem.getDescription());
+////        gitem.setGitemURL(gitem.getGitemURL());
+////        gitem.setGallery(gitem.getGallery());
+////        gitemService.updGitem(gitem.getName(), gitem.getDescription(), gitem.getGitemURL(), gitem.getGallery());
+////        gitemService.save(gitem);
+//        gitemService.updGitem(gitem.getName(), gitem.getDescription(), gitem.getGitemURL(), gitem.getGallery());
+//        return "redirect:/gallery/galleryIndex";
+//    }
+
     @RequestMapping("/deleteGitem")
-    @ResponseBody()
+    //@ResponseBody()
     public String deleteGitem(@RequestParam int id) {
         Gitem gitem = gitemService.fetchById((id));
         gitemService.delete(gitem);

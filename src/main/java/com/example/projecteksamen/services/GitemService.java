@@ -1,5 +1,6 @@
 package com.example.projecteksamen.services;
 
+import com.example.projecteksamen.models.Gallery;
 import com.example.projecteksamen.models.Gitem;
 import com.example.projecteksamen.repositories.GitemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,9 @@ public class GitemService {
 
     public void delete(Gitem gitem){
         gitemRepository.delete(gitem);
+    }
+
+    public List<Gitem> updGitem(String name, String description, String gitemURL, Gallery gallery){
+        return gitemRepository.updGitem(name, description, gitemURL, gallery);
     }
 }

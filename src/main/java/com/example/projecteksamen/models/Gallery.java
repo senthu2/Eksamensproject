@@ -51,6 +51,15 @@ public class Gallery {
 //        oldGitem.setGallery(null);
 //    }
 
+//    public Gitem getSpecificGitem(int id) {
+//        for(Gitem e : gitem) {
+//            if(e.getId() == id) {
+//                return e;
+//            }
+//        }
+//        return null;
+//    }
+
     /** Constructors + getters og setters */
     public Gallery() {
     }
