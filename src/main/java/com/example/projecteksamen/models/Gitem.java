@@ -21,7 +21,7 @@ public class Gitem {
     private String gitemURL;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "item_gallery_id", nullable = false, updatable = true, referencedColumnName = "gallery_id")
+    @JoinColumn(name = "gallery_id", nullable = false, updatable = true, referencedColumnName = "gallery_id")
     private Gallery gallery;
 
     public Gitem(){
