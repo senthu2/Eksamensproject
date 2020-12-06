@@ -70,10 +70,6 @@
                             <input name="id" class="w3-input" type="hidden"  th:value="${pitem.getId()} ?: 0">
                         </li>
                         <li>
-                            <label>Item category:</label>
-                            <input name="gitCat" class="w3-input" type="text"  th:value="${pitem.getProductCat()} ?: 0">
-                        </li>
-                        <li>
                             <label>Item name:</label>
                             <input name="name" class="w3-input" type="text"  th:value="${pitem.getName()} ?: 0">
                         </li>
@@ -83,7 +79,7 @@
                         </li>
                         <li>
                             <label>Image:</label>
-                            <input name="gitemURL" class="w3-input" type="text"  th:value="${pitem.getPitemURL()} ?: 0">
+                            <input name="pitemURL" class="w3-input" type="text"  th:value="${pitem.getPitemURL()} ?: 0">
                         </li>
                     </ul>
                 </div>

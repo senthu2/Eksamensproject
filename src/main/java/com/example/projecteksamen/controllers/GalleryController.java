@@ -2,6 +2,7 @@ package com.example.projecteksamen.controllers;
 
 import com.example.projecteksamen.models.Gallery;
 import com.example.projecteksamen.models.Gitem;
+import com.example.projecteksamen.models.Pitem;
 import com.example.projecteksamen.services.GalleryService;
 import com.example.projecteksamen.services.GitemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,37 +110,18 @@ public class GalleryController {
     }
 
     @PostMapping("/updateG")
-    public String commitEditG(@ModelAttribute("gitem") Gitem gitem, @RequestParam int id){
+    public String commitEditG(@RequestParam int id, @RequestParam String name,
+                              @RequestParam String description, @RequestParam String gitemURL){
 
         //changes
-        gitem.setName(gitem.getName());
-        gitem.setDescription(gitem.getDescription());
-        gitem.setGitemURL(gitem.getGitemURL());
-        gitem.setGallery(gitem.getGallery());
-//        gitemService.updGitem(gitem.getName(), gitem.getDescription(), gitem.getGitemURL(), gitem.getGallery());
+        Gitem gitem = gitemService.fetchById(id);
+        gitem.setName(name);
+        gitem.setDescription(description);
+        gitem.setGitemURL(gitemURL);
+
         gitemService.save(gitem);
         return "redirect:/gallery/galleryIndex";
     }
-
-//    @GetMapping("/editG/{id}")
-//    public String editG(Model model, @PathVariable("id") int id){
-//        model.addAttribute("gitem", gitemService.fetchById(id));
-//        return "gitem/editGitem";
-//    }
-//
-//    @PostMapping("/updateG")
-//    public String commitEditG(@ModelAttribute("gitem") Gitem gitem, @RequestParam int id){
-//
-//        //changes
-////        gitem.setName(gitem.getName());
-////        gitem.setDescription(gitem.getDescription());
-////        gitem.setGitemURL(gitem.getGitemURL());
-////        gitem.setGallery(gitem.getGallery());
-////        gitemService.updGitem(gitem.getName(), gitem.getDescription(), gitem.getGitemURL(), gitem.getGallery());
-////        gitemService.save(gitem);
-//        gitemService.updGitem(gitem.getName(), gitem.getDescription(), gitem.getGitemURL(), gitem.getGallery());
-//        return "redirect:/gallery/galleryIndex";
-//    }
 
     @RequestMapping("/deleteGitem")
     //@ResponseBody()

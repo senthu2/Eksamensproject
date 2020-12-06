@@ -104,13 +104,14 @@ public class ProductController {
     }
 
     @PostMapping("/updateCat")
-    public String commitEditCat(@ModelAttribute("productCat") ProductCat productCat, @RequestParam int id){
+    public String commitEditCat(@RequestParam int id, @RequestParam String name,
+                                @RequestParam String description, @RequestParam String catURL){
 
         //changes
-        productCat.setProduct(productCat.getProduct());
-        productCat.setName(productCat.getName());
-        productCat.setDescription(productCat.getDescription());
-        productCat.setCatURL(productCat.getCatURL());
+        ProductCat productCat = productCatService.fetchById(id);
+        productCat.setName(name);
+        productCat.setDescription(description);
+        productCat.setCatURL(catURL);
 
         productCatService.save(productCat);
         return "redirect:/product/productIndex";
@@ -162,13 +163,14 @@ public class ProductController {
     }
 
     @PostMapping("/updateP")
-    public String commitEditP(@ModelAttribute("pitem") Pitem pitem, @RequestParam int id){
+    public String commitEditP(@RequestParam int id, @RequestParam String name,
+                              @RequestParam String description, @RequestParam String pitemURL){
 
         //changes
-        pitem.setName(pitem.getName());
-        pitem.setDescription(pitem.getDescription());
-        pitem.setPitemURL(pitem.getPitemURL());
-        pitem.setProductCat(pitem.getProductCat());
+        Pitem pitem = pitemService.fetchById(id);
+        pitem.setName(name);
+        pitem.setDescription(description);
+        pitem.setPitemURL(pitemURL);
 
         pitemService.save(pitem);
         return "redirect:/product/productIndex";
