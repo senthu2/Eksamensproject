@@ -22,6 +22,8 @@ public class ProductCat {
     @Column(name = "product_cat_description")
     private String description;
 
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
@@ -99,4 +101,5 @@ public class ProductCat {
     public void setPitem(List<Pitem> pitem) {
         this.pitem = pitem;
     }
+
 }

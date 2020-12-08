@@ -22,7 +22,8 @@ public class Product {
     @Column(name = "p_description")
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "product")
     private List<ProductCat> productCat = new ArrayList<>();
 
     public Product() {

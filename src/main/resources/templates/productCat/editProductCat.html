@@ -57,7 +57,7 @@
 
 <!-- Grid -->
 <div class="w3-container">
-    <form action="/product/editCat" method="post" >
+    <form action="/product/updateCat" method="post" >
         <input type="hidden" name="id" th:value="${productCat.getId()}">
         <div class = "w3-cell-row">
             <div class = "w3-container w3-cell">
@@ -78,7 +78,7 @@
                         </li>
                         <li>
                             <label>Image:</label>
-                            <input name="gitemURL" class="w3-input" type="text"  th:value="${productCat.getCatURL()} ?: 0">
+                            <input name="catURL" class="w3-input" type="text"  th:value="${productCat.getCatURL()} ?: 0">
                         </li>
                     </ul>
                 </div>

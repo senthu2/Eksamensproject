@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste af reperation</title>
+</head>
+<body>
+
+<div>
+    <table>
+        <td >ID</td>
+        <td >Fornavn</td>
+        <td >Efternavn</td>
+        <td >Adresse</td>
+        <td >Email</td>
+        <td >Telefon nummer</td>
+        <td >Skade lokation</td>
+        <td >Beskrivelse</td>
+    <tr th:each="reperation : ${reperation}">
+        <td th:text="${reperation.id}"></td>
+        <td th:text="${reperation.first_Name}"></td>
+        <td th:text="${reperation.last_Name}"></td>
+        <td th:text="${reperation.address}"></td>
+        <td th:text="${reperation.email}"></td>
+        <td th:text="${reperation.phone_Number}"></td>
+        <td th:text="${reperation.damage_Location}"></td>
+        <td th:text="${reperation.description}"></td>
+
+    </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -51,6 +51,8 @@ public class GalleryController {
         gallery.setDescription(gallery.getDescription());
         gallery.setImgURL(gallery.getImgURL());
 
+
+
         galleryService.save(gallery);
         return "redirect:/gallery/galleryIndex";
     }
