@@ -29,7 +29,7 @@ public class ProductCat {
     private Product product;
 
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "productCat")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "productCat")
     private List<Pitem> pitem = new ArrayList<>();
 
     public void addPitem(Pitem newPitem){

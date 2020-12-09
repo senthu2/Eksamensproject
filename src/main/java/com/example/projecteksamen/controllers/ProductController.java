@@ -120,7 +120,7 @@ public class ProductController {
     @RequestMapping("/deleteCat")
     @ResponseBody()
     public String deleteCat(@RequestParam int id) {
-        ProductCat productCat = productCatService.fetchById((id));
+        ProductCat productCat = productCatService.fetchById(id);
         productCatService.delete(productCat);
         return "redirect:/product/productIndex";
 //        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
@@ -179,7 +179,7 @@ public class ProductController {
     @RequestMapping("/deletePitem")
     @ResponseBody()
     public String deletePitem(@RequestParam int id) {
-        Pitem pitem = pitemService.fetchById((id));
+        Pitem pitem = pitemService.fetchById(id);
         pitemService.delete(pitem);
         return "redirect:/product/productIndex";
 //        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";

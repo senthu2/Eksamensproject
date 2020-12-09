@@ -1,7 +1,6 @@
 package com.example.projecteksamen.models;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity
 @Table(name = "p_item")
@@ -21,8 +20,8 @@ public class Pitem {
     @Column(name = "p_item_description")
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_cat_id", nullable = false, referencedColumnName = "product_cat_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_cat_id", referencedColumnName = "product_cat_id")
     private ProductCat productCat;
 
     public Pitem(Integer id, String name, String pitemURL, String description, ProductCat productCat) {

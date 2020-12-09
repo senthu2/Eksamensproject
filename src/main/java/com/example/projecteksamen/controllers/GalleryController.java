@@ -69,7 +69,7 @@ public class GalleryController {
     @RequestMapping("/delete")
     @ResponseBody()
     public String deleteGallery(@RequestParam int id) {
-        Gallery gallery = galleryService.fetchById((id));
+        Gallery gallery = galleryService.fetchById(id);
         galleryService.delete(gallery);
         return "redirect:/gallery/galleryIndex";
 //        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
@@ -128,7 +128,7 @@ public class GalleryController {
     @RequestMapping("/deleteGitem")
     //@ResponseBody()
     public String deleteGitem(@RequestParam int id) {
-        Gitem gitem = gitemService.fetchById((id));
+        Gitem gitem = gitemService.fetchById(id);
         gitemService.delete(gitem);
         return "redirect:/gallery/galleryIndex";
 //        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";

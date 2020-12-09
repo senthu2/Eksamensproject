@@ -23,7 +23,7 @@ public class Product {
     private String description;
 
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "product")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "product")
     private List<ProductCat> productCat = new ArrayList<>();
 
     public Product() {

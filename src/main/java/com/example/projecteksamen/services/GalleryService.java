@@ -31,15 +31,11 @@ public class GalleryService {
         return galleryRepository.findAll();
     }
 
-    public void delete(int id){
-        galleryRepository.deleteById(id);
-    }
-
-    public void delete(Gallery gallery){
-        galleryRepository.delete(gallery);
-    }
-
-//    public void delete(Gallery gallery) {
-//        galleryRepository.deleteById(gallery.getId());
+//    public void delete(Gallery gallery){
+//        galleryRepository.delete(gallery);
 //    }
+
+    public void delete(Gallery gallery) {
+        galleryRepository.deleteById(gallery.getId());
+    }
 }

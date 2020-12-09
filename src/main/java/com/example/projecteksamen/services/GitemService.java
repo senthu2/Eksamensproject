@@ -33,7 +33,7 @@ public class GitemService {
     }
 
     public void delete(Gitem gitem){
-        gitemRepository.delete(gitem);
+        gitemRepository.deleteById(gitem.getId());
     }
 
     public List<Gitem> updGitem(String name, String description, String gitemURL, Gallery gallery){

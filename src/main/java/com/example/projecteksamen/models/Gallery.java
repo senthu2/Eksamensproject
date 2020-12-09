@@ -38,18 +38,18 @@ public class Gallery {
      * "orphanRemoval" sørger for at et Equipment objekt altid har et tilhørende Activity objekt
      * hvis ikke fjernes Equipment objektet fra databasen næste gang der bliver kaldt på databasen
      */
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "gallery")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "gallery")
     private List<Gitem> gitem = new ArrayList<>();
 
-//    public void addGitem(Gitem newGitem){
-//        newGitem.setGallery(this);
-//        gitem.add(newGitem);
-//    }
-//
-//    public void removeGitem(Gitem oldGitem){
-//        gitem.remove(oldGitem);
-//        oldGitem.setGallery(null);
-//    }
+    public void addGitem(Gitem newGitem){
+        newGitem.setGallery(this);
+        gitem.add(newGitem);
+    }
+
+    public void removeGitem(Gitem oldGitem){
+        gitem.remove(oldGitem);
+        oldGitem.setGallery(null);
+    }
 
 //    public Gitem getSpecificGitem(int id) {
 //        for(Gitem e : gitem) {
