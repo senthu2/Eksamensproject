@@ -83,8 +83,11 @@
             <td th:text="${reperation.phone_Number}"></td>
             <td th:text="${reperation.damage_Location}"></td>
             <td th:text="${reperation.description}"></td>
-            <td><button class="btn btn-primary badge-pill">View</button>
-                <button class="btn btn-danger badge-pill">Delete</button></td>
+            <td>
+                <a><button class="btn btn-primary badge-pill">View</button></a>
+                <a th:href="'/reperation/delete?id=' + ${reperation.id}"><button  class="btn btn-danger badge-pill">Delete</button></a>
+
+            </td>
         </tr>
         </tbody>
     </table>

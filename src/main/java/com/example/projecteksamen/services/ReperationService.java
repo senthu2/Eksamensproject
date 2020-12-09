@@ -36,6 +36,9 @@ public class ReperationService {
     public void delete(Reperation reperation) {
         reperationRepository.deleteById(reperation.getId());
     }
+    public void deleteById(int id) {
+        reperationRepository.deleteById(id);
+    }
 }
 
 
