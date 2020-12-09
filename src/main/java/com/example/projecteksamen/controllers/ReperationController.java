@@ -50,4 +50,10 @@ public class ReperationController {
         reperationService.delete(reperation);
         return "redirect:/reperation/reperationIndex";
         }
+
+    @GetMapping("/view")
+    public String viewReperation(@RequestParam int id, Model model){
+        model.addAttribute("reperation",reperationService.fetchById(id));
+        return "/reperation/reperationView";
+    }
 }

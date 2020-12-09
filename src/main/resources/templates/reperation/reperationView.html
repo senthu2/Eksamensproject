@@ -12,8 +12,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/4bce0974fa.js" crossorigin="anonymous"></script>
-
-    <title>Liste af reperation</title>
+    <title>View</title>
 </head>
 <body>
 
@@ -54,8 +53,12 @@
     </nav>
 </section>
 
+<br><br><br><br><br><br><br><br><br><br>
 
-<section>
+<section class="center">
+
+<h3 style="text-align: center">Informationer På Valgte Kunde</h3>
+    <br>
 
     <table class="table table-hover table-bordered">
         <thead class="thead-light">
@@ -68,13 +71,12 @@
             <th scope="col">Telefon Nummer</th>
             <th scope="col">Skade Location</th>
             <th scope="col">Beskrivelse</th>
-            <th scope="col">Actions</th>
 
         </tr>
         </thead>
         <tbody>
         <tr>
-        <tr th:each="reperation : ${reperation}">
+        <tr>
             <td th:text="${reperation.id}"></td>
             <td th:text="${reperation.first_Name}"></td>
             <td th:text="${reperation.last_Name}"></td>
@@ -83,15 +85,9 @@
             <td th:text="${reperation.phone_Number}"></td>
             <td th:text="${reperation.damage_Location}"></td>
             <td th:text="${reperation.description}"></td>
-            <td>
-                <a th:href="'/reperation/view?id=' + ${reperation.id}"><button class="btn btn-primary badge-pill">View</button></a>
-                <a th:href="'/reperation/delete?id=' + ${reperation.id}"><button  class="btn btn-danger badge-pill">Delete</button></a>
-
-            </td>
         </tr>
         </tbody>
     </table>
-
 </section>
 
 </body>
