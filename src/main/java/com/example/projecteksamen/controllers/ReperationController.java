@@ -45,10 +45,9 @@ public class ReperationController {
     }*/
 
     @RequestMapping("/delete")
-    @ResponseBody()
     public String deleteReperation(@RequestParam int id){
         Reperation reperation = reperationService.fetchById(id);
         reperationService.delete(reperation);
-        return "redirect:/reperationIndex";
+        return "redirect:/reperation/reperationIndex";
         }
 }
