@@ -59,7 +59,7 @@ public class ProductController {
     }
 
     @RequestMapping("/delete")
-    @ResponseBody()
+//    @ResponseBody()
     public String deleteProduct(@RequestParam int id){
         Product product = productService.fetchById(id);
         productService.delete(product);
@@ -84,6 +84,7 @@ public class ProductController {
     public String createC(Model model){
         ProductCat productCat = new ProductCat();
         model.addAttribute("cat", productCat);
+        model.addAttribute("products", productService.fetchAll());
         return "productCat/createProductCat";
     }
 
@@ -118,7 +119,7 @@ public class ProductController {
     }
 
     @RequestMapping("/deleteCat")
-    @ResponseBody()
+//    @ResponseBody()
     public String deleteCat(@RequestParam int id) {
         ProductCat productCat = productCatService.fetchById(id);
         productCatService.delete(productCat);
@@ -143,6 +144,8 @@ public class ProductController {
     public String createP(Model model){
         Pitem pitem = new Pitem();
         model.addAttribute("pitem", pitem);
+        model.addAttribute("product", productService.fetchAll());
+        model.addAttribute("productCat", productCatService.fetchAll());
         return "pitem/createPitem";
     }
 
@@ -177,7 +180,7 @@ public class ProductController {
     }
 
     @RequestMapping("/deletePitem")
-    @ResponseBody()
+//    @ResponseBody()
     public String deletePitem(@RequestParam int id) {
         Pitem pitem = pitemService.fetchById(id);
         pitemService.delete(pitem);

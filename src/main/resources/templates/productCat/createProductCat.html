@@ -65,7 +65,11 @@
                     <ul class="w3-ul w3-light-grey">
                         <li>
                             <label>Gallery id:</label>
-                            <input class="w3-input" type="text"  th:field="${cat.product}" required>
+                            <select th:field="*{cat.product}" class="w3-select">
+                                <option th:each="p: ${products}" th:value="${p.id}">
+                                    <a th:text="${p.getCategory()}"></a>
+                                </option>
+                            </select>
                         </li>
                         <li>
                             <label>Name:</label>

@@ -67,7 +67,7 @@ public class GalleryController {
     }
 
     @RequestMapping("/delete")
-    @ResponseBody()
+//    @ResponseBody()
     public String deleteGallery(@RequestParam int id) {
         Gallery gallery = galleryService.fetchById(id);
         galleryService.delete(gallery);
@@ -92,6 +92,7 @@ public class GalleryController {
     public String createG(Model model){
         Gitem gitem = new Gitem();
         model.addAttribute("gitem", gitem);
+        model.addAttribute("galleries", galleryService.fetchAll());
         return "gitem/createGitem";
     }
 

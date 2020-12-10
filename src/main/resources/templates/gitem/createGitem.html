@@ -60,13 +60,19 @@
     <form action="/gallery/createGitem" method="post">
         <div class = "w3-cell-row">
             <div class = "w3-container w3-cell">
-                <div class="w3-margin w3-card">
+                <li class="w3-margin w3-card">
                     <header class="w3-container w3-blue"><h2>New Gallery Item</h2></header>
                     <ul class="w3-ul w3-light-grey">
+
                         <li>
-                            <label>Gallery id:(1.Kitechen, 2 Toilet)</label>
-                            <input class="w3-input" type="text"  th:field="${gitem.gallery}" required>
+                            <label>Gallery id:</label>
+                            <select th:field="*{gitem.gallery}" class="w3-select">
+                                <option th:each="g: ${galleries}" th:value="${g.id}">
+                                    <a th:text="${g.getCategory()}"></a>
+                                </option>
+                            </select>
                         </li>
+
                         <li>
                             <label>Name:</label>
                             <input class="w3-input" type="text"  th:field="${gitem.name}" required>
@@ -77,7 +83,7 @@
                         </li>
                         <li>
                             <label>Image:</label>
-                            <textarea class="w3-input" rows="8" th:field="${gitem.gitemURL}" style="resize: none"></textarea>
+                            <input class="w3-input" rows="8" th:field="${gitem.gitemURL}" style="resize: none"></input>
                         </li>
                     </ul>
                 </div>

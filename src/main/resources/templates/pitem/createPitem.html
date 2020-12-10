@@ -64,8 +64,13 @@
                     <header class="w3-container w3-blue"><h2>New Product Item</h2></header>
                     <ul class="w3-ul w3-light-grey">
                         <li>
-                            <label>Gallery id:(1.Kitechen, 2 Toilet)</label>
-                            <input class="w3-input" type="text"  th:field="${pitem.productCat}" required>
+                            <label>Gallery id:</label>
+                            <select th:field="*{pitem.productCat}" class="w3-select">
+                                <option th:each="p: ${productCat}" th:value="${p.id}">
+                                    <b th:text="${p.product.getCategory()}"></b>
+                                    <a th:text="${p.getName()}"></a>
+                                </option>
+                            </select>
                         </li>
                         <li>
                             <label>Name:</label>
