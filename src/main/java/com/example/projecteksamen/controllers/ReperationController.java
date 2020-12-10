@@ -1,7 +1,6 @@
 package com.example.projecteksamen.controllers;
 
 
-import com.example.projecteksamen.models.Product;
 import com.example.projecteksamen.models.Reperation;
 import com.example.projecteksamen.services.ReperationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +20,15 @@ public class ReperationController {
         model.addAttribute("reperation",reperationService.fetchAll());
         return "/reperation/reperationIndex";
     }
-    @RequestMapping("/Kontaktform")
+    @GetMapping("/reperationCreate")
     public String createReperation(Model model){
         System.out.println("Vis reperation");
         Reperation reperation = new Reperation();
         model.addAttribute("reperation",reperation);
-        return "reperation/Kontaktform";
+        return "reperation/reperationCreate";
     }
-/*
-    @PostMapping("/Kontaktform")
+
+    @PostMapping("/reperationCreate")
     public String createReperation(@ModelAttribute("reperation") Reperation reperation){
         System.out.println("Opret reperation");
         reperation.setFirst_Name(reperation.getFirst_Name());
@@ -40,9 +39,9 @@ public class ReperationController {
         reperation.setDamage_Location(reperation.getDamage_Location());
         reperation.setDescription(reperation.getDescription());
         reperationService.save(reperation);
-        return "index";
+        return "reperation/reperationCreate";
 
-    }*/
+    }
 
     @RequestMapping("/delete")
     public String deleteReperation(@RequestParam int id){

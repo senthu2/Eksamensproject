@@ -32,10 +32,10 @@
                     <a class="nav-link" href="/Counter">Statistik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Booking</a>
+                    <a class="nav-link" href="/reperation/reperationCreate">Reperation Form</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/reperation/reperationIndex/">Reperation</a>
+                    <a class="nav-link" href="/reperation/reperationIndex/">Reperation Liste</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/product/productIndex">Produckt</a>
@@ -86,7 +86,6 @@
             <td>
                 <a th:href="'/reperation/view?id=' + ${reperation.id}"><button class="btn btn-primary badge-pill">View</button></a>
                 <a th:href="'/reperation/delete?id=' + ${reperation.id}"><button  class="btn btn-danger badge-pill">Delete</button></a>
-
             </td>
         </tr>
         </tbody>
