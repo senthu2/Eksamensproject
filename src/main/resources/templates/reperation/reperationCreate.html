@@ -55,45 +55,42 @@
     </nav>
 </section>
 
+<br><br>
 <section class="ReperationForm">
-    <form action="/reperation/reperationCreate" method="post">
-        <div class="container">
-            <header>Reperation Form</header>
-                <div class="input-field">
-                    <input type="text" name="first_Name" th:field="${reperation.first_Name}">
-                    <label>ForNavn</label>
-                </div>
-                <div class="input-field">
-                    <input type="text"  name="last_name" th:field="${reperation.last_Name}">
-                    <label>EfterNavn</label>
-                </div>
-                <div class="input-field">
-                    <input type="text" name="address" th:field="${reperation.address}">
-                    <label>Adresse</label>
-                </div>
-                <div class="input-field">
-                    <input type="text" name="email" th:field="${reperation.email}">
-                    <label>Email</label>
-                </div>
-                <div class="input-field">
-                    <input name="phone_Number" th:field="${reperation.phone_Number}">
-                    <label>Telefon Nummmer</label>
-                </div>
-                <div class="input-field">
-                    <input type="text" name="damage_Location" th:field="${reperation.damage_Location}">
-                    <label>Location på Skade?</label>
-                </div>
-                <div class="input-field">
-                    <input type="text" name="desription" th:field="${reperation.description}">
-                    <label>Beskrivelse</label>
-                </div>
-                <div class="button">
-                    <div class="inner">
-                    </div>
-                    <button>Send</button>
-                </div>
-        </div>
-    </form>
+    <div class="container">
+        <form action="/reperation/reperationCreate" method="post">
+
+            <h1 style="text-align: center">Reperation Form</h1>
+
+            <label>First Name</label>
+            <input type="text"  name="first_Name" placeholder="Your name.." th:field="${reperation.first_Name}">
+
+            <label>Last Name</label>
+            <input type="text"  name="last_Name" placeholder="Your last name.." th:field="${reperation.last_Name}">
+
+            <label>Addresse</label>
+            <input type="text"  name="address" placeholder="Your Addresse.." th:field="${reperation.address}">
+
+            <label>Email</label>
+            <input type="text"  name="email" placeholder="Your email.." th:field="${reperation.email}">
+
+            <label>Phone Number</label>
+            <input type="text"  name="phone_Number" placeholder="Your phone Number.." th:field="${reperation.phone_Number}">
+
+            <label>Hvor er skaden sket?</label>
+            <select name="damage_Location" th:field="${reperation.damage_Location}">
+                <option value="Køkken">Køkken</option>
+                <option value="Bad">Bad</option>
+                <option value="Stue">Stue</option>
+            </select>
+
+            <label>Beskrivelse af skade</label>
+            <textarea name="description" placeholder="Write something.." th:field="${reperation.description}" style="height:200px"></textarea>
+
+            <input type="submit" value="Submit" onclick="alert('besked sendt')">
+
+        </form>
+    </div>
 </section>
 
 
