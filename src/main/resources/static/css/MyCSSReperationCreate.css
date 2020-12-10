@@ -1,4 +1,7 @@
 /* Style inputs with type="text", select elements and textareas */
+.ReperationForm{
+    background: ghostwhite;
+}
 input[type=text], select, textarea {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */
