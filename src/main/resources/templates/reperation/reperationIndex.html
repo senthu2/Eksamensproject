@@ -29,16 +29,13 @@
                     <a class="nav-link" href="/index2">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Counter">Statistik</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/reperation/reperationCreate">Reperation Form</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/reperation/reperationIndex/">Reperation Liste</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/product/productIndex">Produckt</a>
+                    <a class="nav-link" href="/product/productIndex">Produkt</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/gallery/galleryIndex">Galleri</a>
@@ -60,14 +57,14 @@
     <table class="table table-hover table-bordered">
         <thead class="thead-light">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">ID</th>
+            <th scope="col">Fornavn</th>
+            <th scope="col">Efternavn</th>
             <th scope="col">Addresse</th>
             <th scope="col">Email</th>
             <th scope="col">Telefon Nummer</th>
-            <th scope="col">Skade Location</th>
-            <th scope="col">Beskrivelse</th>
+            <th scope="col">Locataion på skade</th>
+            <th scope="col">Beskrivelse af skade</th>
             <th scope="col">Actions</th>
 
         </tr>
@@ -84,8 +81,8 @@
             <td th:text="${reperation.damage_Location}"></td>
             <td th:text="${reperation.description}"></td>
             <td>
-                <a th:href="'/reperation/view?id=' + ${reperation.id}"><button class="btn btn-primary badge-pill">View</button></a>
-                <a th:href="'/reperation/delete?id=' + ${reperation.id}"><button  class="btn btn-danger badge-pill">Delete</button></a>
+                <a th:href="'/reperation/view?id=' + ${reperation.id}"><button class="btn btn-primary badge-pill">Se Detaljer</button></a>
+                <a th:href="'/reperation/delete?id=' + ${reperation.id}"><button  class="btn btn-danger badge-pill">Slet</button></a>
             </td>
         </tr>
         </tbody>
