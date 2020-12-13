@@ -24,8 +24,4 @@ public class HomeController {
     public String counter(){
         return "Counter";
     }
-    @GetMapping("/index2")
-    public String index2(){
-        return "index2";
-    }
 }

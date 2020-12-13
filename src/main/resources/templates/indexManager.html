@@ -25,10 +25,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">HomeManger</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/reperation/reperationCreate">Reperation Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reperation/reperationIndex/">Reperation Liste</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/product/productIndex">Product</a>
@@ -52,6 +55,12 @@
 <div>
     <h3><a th:href="@{/register}">Register</a></h3>
     <h3><a th:href="@{/login}">Login</a></h3>
+    <form th:action="@{/logout}" method="post">
+        <p>
+            Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+        </p>
+        <input type="submit" value="Sign Out" />
+    </form>
 </div>
 
 <div id="slider">

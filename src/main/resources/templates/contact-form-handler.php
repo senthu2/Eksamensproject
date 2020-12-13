@@ -19,6 +19,6 @@ $message = $_POST['message'];
 
     mail($to,$email_subject,$email_body,$headers);
 
-    header("Location: index2.html");
+    header("Location: MailTest.html");
 
 ?>
