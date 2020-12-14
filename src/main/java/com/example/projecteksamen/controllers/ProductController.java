@@ -5,9 +5,12 @@ import com.example.projecteksamen.services.PitemService;
 import com.example.projecteksamen.services.ProductCatService;
 import com.example.projecteksamen.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/product")
@@ -21,8 +24,12 @@ public class ProductController {
     PitemService pitemService;
 
     @GetMapping("productIndex")
-    public String product(Model model){
-        model.addAttribute("products", productService.fetchAll());
+    public String product(Model model, @Param("keyword") String keyword){
+        List<Product> listProducts = productService.listAll(keyword);
+        model.addAttribute("products", productService.listAll(keyword));
+        model.addAttribute("keyword", keyword);
+
+
         return "product/productIndex";
     }
 
