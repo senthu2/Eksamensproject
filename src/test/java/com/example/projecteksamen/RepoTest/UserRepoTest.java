@@ -24,7 +24,7 @@ public class UserRepoTest {
     private UserRepository userRepository;
 
     // test methods go below
-    @Test
+   /* @Test
     public void testCreateUser() {
         User user = new User();
         user.setEmail("senthu@live.dk");
@@ -46,5 +46,5 @@ public class UserRepoTest {
         User user = userRepository.findByEmail(email);
 
         assertThat(user).isNotNull();
-    }
+    }*/
 }
