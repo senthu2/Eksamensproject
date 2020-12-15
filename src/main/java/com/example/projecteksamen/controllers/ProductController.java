@@ -25,7 +25,7 @@ public class ProductController {
 
     @GetMapping("productIndex")
     public String product(Model model, @Param("keyword") String keyword){
-        List<Product> listProducts = productService.listAll(keyword);
+        //List<Product> listProducts = productService.listAll(keyword);
         model.addAttribute("products", productService.listAll(keyword));
         model.addAttribute("keyword", keyword);
 
@@ -85,6 +85,8 @@ public class ProductController {
         model.addAttribute("product", product);
         model.addAttribute("newProductCat", new ProductCat());
         return "productCat/productCat";
+
+
     }
 
     @RequestMapping("/createC")

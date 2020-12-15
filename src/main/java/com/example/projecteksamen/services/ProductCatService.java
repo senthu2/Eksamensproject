@@ -1,5 +1,6 @@
 package com.example.projecteksamen.services;
 
+import com.example.projecteksamen.models.Product;
 import com.example.projecteksamen.models.ProductCat;
 import com.example.projecteksamen.repositories.ProductCatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +35,5 @@ public class ProductCatService {
     public void delete(ProductCat productCat) {
         productCatRepository.deleteById(productCat.getId());
     }
+
 }
