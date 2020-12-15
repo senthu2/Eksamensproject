@@ -7,9 +7,10 @@
 }
 .navbar-brand img
 {
-    height: 75px;
-    width: 200px;
+    height: 100px;
+    width: 350px;
     padding-left: 30px;
+    zoom: 110%;
 }
 .navbar-nav li
 {
