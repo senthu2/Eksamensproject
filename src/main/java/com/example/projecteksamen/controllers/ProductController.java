@@ -29,7 +29,6 @@ public class ProductController {
         model.addAttribute("products", productService.listAll(keyword));
         model.addAttribute("keyword", keyword);
 
-
         return "product/productIndex";
     }
 
@@ -66,12 +65,10 @@ public class ProductController {
     }
 
     @RequestMapping("/delete")
-//    @ResponseBody()
     public String deleteProduct(@RequestParam int id){
         Product product = productService.fetchById(id);
         productService.delete(product);
         return "redirect:/gallery/galleryIndex";
-//        return product.getCategory()+"\n"+product.getDescription()+" /"+product.getImgURL()+"\nDeleted";
     }
 
         /*------------------------------------------
@@ -116,7 +113,6 @@ public class ProductController {
     @PostMapping("/updateCat")
     public String commitEditCat(@RequestParam int id, @RequestParam String name,
                                 @RequestParam String description, @RequestParam String catURL){
-
         //changes
         ProductCat productCat = productCatService.fetchById(id);
         productCat.setName(name);
@@ -128,12 +124,10 @@ public class ProductController {
     }
 
     @RequestMapping("/deleteCat")
-//    @ResponseBody()
     public String deleteCat(@RequestParam int id) {
         ProductCat productCat = productCatService.fetchById(id);
         productCatService.delete(productCat);
         return "redirect:/product/productIndex";
-//        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
     }
 
             /*------------------------------------------
@@ -177,7 +171,6 @@ public class ProductController {
     @PostMapping("/updateP")
     public String commitEditP(@RequestParam int id, @RequestParam String name,
                               @RequestParam String description, @RequestParam String pitemURL){
-
         //changes
         Pitem pitem = pitemService.fetchById(id);
         pitem.setName(name);
@@ -189,11 +182,9 @@ public class ProductController {
     }
 
     @RequestMapping("/deletePitem")
-//    @ResponseBody()
     public String deletePitem(@RequestParam int id) {
         Pitem pitem = pitemService.fetchById(id);
         pitemService.delete(pitem);
         return "redirect:/product/productIndex";
-//        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
     }
 }

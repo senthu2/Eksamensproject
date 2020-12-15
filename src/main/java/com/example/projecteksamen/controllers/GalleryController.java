@@ -51,8 +51,6 @@ public class GalleryController {
         gallery.setDescription(gallery.getDescription());
         gallery.setImgURL(gallery.getImgURL());
 
-
-
         galleryService.save(gallery);
         return "redirect:/gallery/galleryIndex";
     }
@@ -67,12 +65,10 @@ public class GalleryController {
     }
 
     @RequestMapping("/delete")
-//    @ResponseBody()
     public String deleteGallery(@RequestParam int id) {
         Gallery gallery = galleryService.fetchById(id);
         galleryService.delete(gallery);
         return "redirect:/gallery/galleryIndex";
-//        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
     }
 
     /*------------------------------------------
@@ -115,7 +111,6 @@ public class GalleryController {
     @PostMapping("/updateG")
     public String commitEditG(@RequestParam int id, @RequestParam String name,
                               @RequestParam String description, @RequestParam String gitemURL){
-
         //changes
         Gitem gitem = gitemService.fetchById(id);
         gitem.setName(name);
@@ -127,20 +122,9 @@ public class GalleryController {
     }
 
     @RequestMapping("/deleteGitem")
-    //@ResponseBody()
     public String deleteGitem(@RequestParam int id) {
         Gitem gitem = gitemService.fetchById(id);
         gitemService.delete(gitem);
         return "redirect:/gallery/galleryIndex";
-//        return gallery.getCategory()+"\n"+gallery.getDescription()+" / "+gallery.getImgURL()+"\nDeleted";
     }
-
-//    @PostMapping("/{id}/gitem/new")
-//    public String addGitem(@ModelAttribute("gitem") Gitem gitem, @PathVariable("id") int id) {
-//        Gallery gallery = galleryService.fetchById(id);
-//        gitem.setGallery(gallery);
-//        gallery.addGitem(gitem);
-//        galleryService.save(gallery);
-//        return "redirect:/gallery/{id}/gitem";
-//    }
 }
