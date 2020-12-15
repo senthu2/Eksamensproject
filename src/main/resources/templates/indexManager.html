@@ -48,6 +48,9 @@
                 <li class="nav-item" >
                     <a class="nav-link" style="background-color: whitesmoke" th:href="@{/login}">Login</a>
                 </li>
+                <li class="nav-item" >
+                    <a class="nav-link" style="background-color: whitesmoke" th:href="@{/register}">Opret bruger</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -56,8 +59,6 @@
 <!-------- Slider  -------->
 
 <div>
-    <h3><a th:href="@{/register}">Register</a></h3>
-    <h3><a th:href="@{/login}">Login</a></h3>
     <form th:action="@{/logout}" method="post">
         <p>
             Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
