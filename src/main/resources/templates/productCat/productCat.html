@@ -66,9 +66,8 @@
         <img class="w3-image" src="" th:src="@{${'/images/' + productCat.catURL}}" alt="Missing image">
         <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${productCat.name} == null" th:text="${productCat.name}" ></h3>
         <table class="w3-table w3-bordered">
+            <td class="tData"><strong>Beskrivelse:</strong></td>
             <tr>
-                <td type="hidden" th:text = "${productCat.id} ?: 'None'"></td>
-                <td class="tData"><strong>Beskrivelse:</strong></td>
                 <td class="tData" th:text = "${productCat.description} ?: 'None'"></td>
             </tr>
         </table>
