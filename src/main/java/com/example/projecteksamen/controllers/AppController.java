@@ -39,6 +39,16 @@ public class AppController {
         return "indexManager";
     }
 
+    @GetMapping("/omOsManager")
+    public String omOs(){
+        return "omOsManager";
+    }
+
+    @GetMapping("/KontaktInfoManager")
+    public String kontaktInfo(){
+        return "KontaktInfoManager";
+    }
+
 
 }
 
