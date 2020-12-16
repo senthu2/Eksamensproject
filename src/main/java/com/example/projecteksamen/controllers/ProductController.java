@@ -23,6 +23,15 @@ public class ProductController {
     @Autowired
     PitemService pitemService;
 
+    @GetMapping("productCus")
+    public String productCus(Model model, @Param("keyword") String keyword){
+        //List<Product> listProducts = productService.listAll(keyword);
+        model.addAttribute("products", productService.listAll(keyword));
+        model.addAttribute("keyword", keyword);
+
+        return "product/productCus";
+    }
+
     @GetMapping("productIndex")
     public String product(Model model, @Param("keyword") String keyword){
         //List<Product> listProducts = productService.listAll(keyword);
@@ -75,6 +84,15 @@ public class ProductController {
                     ProductCat methods
         -------------------------------------------*/
 
+    @GetMapping("/{id}/productCatCus")
+    public String viewProductCatCus(Model model, @PathVariable int id){
+        Product product = productService.fetchById(id);
+        model.addAttribute("productCat", product.getProductCat());
+        model.addAttribute("product", product);
+        model.addAttribute("newProductCat", new ProductCat());
+        return "productCat/productCatCus";
+    }
+
     @GetMapping("/{id}/productCat")
     public String viewProductCat(Model model, @PathVariable int id){
         Product product = productService.fetchById(id);
@@ -82,8 +100,6 @@ public class ProductController {
         model.addAttribute("product", product);
         model.addAttribute("newProductCat", new ProductCat());
         return "productCat/productCat";
-
-
     }
 
     @RequestMapping("/createC")
@@ -134,6 +150,15 @@ public class ProductController {
                         Product item methods
             -------------------------------------------*/
 
+    @GetMapping("/{id}/pitemCus")
+    public String viewPitemCus(Model model, @PathVariable int id){
+        ProductCat productCat = productCatService.fetchById(id);
+        model.addAttribute("pitem", productCat.getPitem());
+        model.addAttribute("productCat", productCat);
+        model.addAttribute("newPitem", new Pitem());
+        return "pitem/pitemCus";
+    }
+
     @GetMapping("/{id}/pitem")
     public String viewPitem(Model model, @PathVariable int id){
         ProductCat productCat = productCatService.fetchById(id);
@@ -142,6 +167,7 @@ public class ProductController {
         model.addAttribute("newPitem", new Pitem());
         return "pitem/pitem";
     }
+
 
     @RequestMapping("/createP")
     public String createP(Model model){

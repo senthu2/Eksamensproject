@@ -9,12 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <script type="text/javascript" src="webjars/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" th:src="@{/javascript/deleteDisplay.js}" src="../../static/javascript/deleteDisplay.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascript/deleteDisplay.js"></script>
     <script src="https://kit.fontawesome.com/4bce0974fa.js" crossorigin="anonymous"></script>
 
     <title>Forside</title>
@@ -36,13 +33,10 @@
                     <a class="nav-link" href="/reperation/reperationCreate">Reperation Form</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/reperation/reperationIndex/">Reperation Liste</a>
+                    <a class="nav-link" href="/product/productCus">Produkt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/product/productIndex">Produkt</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/gallery/galleryIndex">Galleri</a>
+                    <a class="nav-link" href="/gallery/galleryCus">Galleri</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/KontaktInfo">Kontakt</a>
@@ -62,43 +56,18 @@
 
 <!-- Grid -->
 <div class="w3-col s11 w3-container w3-cell-row">
-    <div class="w3-row">
-        <a href="/product/createP">Add New Product Item</a>
-    </div>
-    <div th:each="pit: ${pitem}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
-        <img class="w3-image" src="" th:src="@{${'/images/' + pit.pitemURL}}" alt="Missing image">
-        <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${pit.name} == null" th:text="${pit.name}" ></h3>
-        <table class="table w3-table w3-bordered">
+    <div th:each="gallery: ${galleries}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
+        <img class="w3-image" src="" th:src="@{${'/images/' + gallery.imgURL}}" alt="Missing image">
+        <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${gallery.category} == null" th:text="${gallery.category}" ></h3>
+        <table class="w3-table w3-bordered">
             <tr>
-                <td type="hidden" th:text = "${pit.id} ?: 'None'"></td>
+                <td type="hidden" th:text = "${gallery.id} ?: 'None'"></td>
                 <td class="tData"><strong>Description:</strong></td>
-                <td class="tData" th:text = "${pit.description} ?: 'None'"></td>
+                <td class="text" th:text = "${gallery.description} ?: 'None'"></td>
             </tr>
         </table>
         <div class="w3-row">
-            <a th:href="@{/product/deletePitem/(id=${pit.id})}" class="btn btn-danger delBtn">Delete</a>
-            <a th:href="'/product/editP?id=' + ${pit.id}" class="w3-button w3-btn w3-col" >Edit</a>
-        </div>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="alert alert-danger">
-                            Are you sure?
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="" class="btn btn-danger" id="delRef">Delete</a>
-                    </div>
-                </div>
-            </div>
+            <a th:href="@{/gallery/{id}/gitemCus(id=${gallery.id})}" class="w3-button w3-btn w3-col" style="backdrop-filter: blur(5px)">Gå ind</a>
         </div>
     </div>
 </div>

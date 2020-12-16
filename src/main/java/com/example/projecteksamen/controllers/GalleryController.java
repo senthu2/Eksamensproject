@@ -21,6 +21,12 @@ public class GalleryController {
     @Autowired
     GitemService gitemService;
 
+    @GetMapping("galleryCus")
+    public String galleryCus(Model model){
+        model.addAttribute("galleries", galleryService.fetchAll());
+        return "gallery/galleryCus";
+    }
+
     @GetMapping("galleryIndex")
     public String gallery(Model model){
         model.addAttribute("galleries", galleryService.fetchAll());
@@ -82,6 +88,15 @@ public class GalleryController {
         model.addAttribute("gallery", gallery);
         model.addAttribute("newGitem", new Gitem());
         return "gitem/gitem";
+    }
+
+    @GetMapping("/{id}/gitemCus")
+    public String viewGitemCus(Model model, @PathVariable int id){
+        Gallery gallery = galleryService.fetchById(id);
+        model.addAttribute("gitem", gallery.getGitem());
+        model.addAttribute("gallery", gallery);
+        model.addAttribute("newGitem", new Gitem());
+        return "gitem/gitemCus";
     }
 
     @RequestMapping("/createG")

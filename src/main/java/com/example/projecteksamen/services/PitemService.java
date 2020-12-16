@@ -1,6 +1,7 @@
 package com.example.projecteksamen.services;
 
 import com.example.projecteksamen.models.Pitem;
+import com.example.projecteksamen.models.Product;
 import com.example.projecteksamen.repositories.PitemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
