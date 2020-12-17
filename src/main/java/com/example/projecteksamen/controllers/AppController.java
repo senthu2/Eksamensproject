@@ -45,28 +45,6 @@ public class AppController {
         return "indexManager";
     }
 
-    @GetMapping("/reperationCreateManager")
-    public String createReperation(Model model){
-        System.out.println("Vis reperation");
-        Reperation reperation = new Reperation();
-        model.addAttribute("reperation",reperation);
-        return "reperation/reperationCreateManager";
-    }
-
-    @PostMapping("/reperationCreateManager")
-    public String createReperation(@ModelAttribute("reperation") Reperation reperation){
-        System.out.println("Opret reperation");
-        reperation.setFirst_Name(reperation.getFirst_Name());
-        reperation.setLast_Name(reperation.getLast_Name());
-        reperation.setAddress(reperation.getAddress());
-        reperation.setEmail(reperation.getEmail());
-        reperation.setPhone_Number(reperation.getPhone_Number());
-        reperation.setDamage_Location(reperation.getDamage_Location());
-        reperation.setDescription(reperation.getDescription());
-        reperationService.save(reperation);
-        return "reperation/reperationCreateManager";
-
-    }
 
     @GetMapping("/omOsManager")
     public String omOs(){
