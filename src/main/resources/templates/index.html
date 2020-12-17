@@ -18,32 +18,29 @@
 
 <section id="Nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="/"><img src="/images/Logo1.PNG"></a>
+        <a class="navbar-brand" href="/"><img src="images/VVS-Logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">Forside</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/reperation/reperationCreate">Reperation Form</a>
+                    <a class="nav-link" href="/reperation/reperationCreate">Reperations Form</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/product/productCus">Product</a>
+                    <a class="nav-link" href="/product/productIndex">Produkter</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/gallery/galleryCus">Gallery</a>
+                    <a class="nav-link" href="/gallery/galleryIndex">Gallari</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/KontaktInfo">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/omOs">Om Os</a>
-                </li>
-                <li class="nav-item" >
-                    <a class="nav-link" style="background-color: whitesmoke" th:href="@{/login}">Login</a>
+                    <a class="nav-link" href="/omOs">Om os</a>
                 </li>
             </ul>
         </div>
@@ -51,6 +48,12 @@
 </section>
 
 <!-------- Slider  -------->
+
+<div>
+    <h3><a th:href="@{/register}">Register</a></h3>
+    <h3><a th:href="@{/login}">Login</a></h3>
+</div>
+
 <div id="slider">
 
     <div id="headerSlider" class="carousel slide" data-ride="carousel">
@@ -88,11 +91,11 @@
 
         <a class="carousel-control-prev" href="#headerSlider" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">Forrige</span>
         </a>
         <a class="carousel-control-next" href="#headerSlider" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">Næste</span>
         </a>
     </div>
 </div>
@@ -103,12 +106,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>Om Os</h2>
+                <h2>Om os</h2>
                 <div class="about-content">
-                    VVi er et firma med 20år erfaring indenfor VVS, der går meget op i at levere
-                    god kvalitet og tage os af vores kunder. Sammentidig prøver vi så vidt muligt kun at bruge lokale
-                    underleverandøre til vores opgaver. Vi er blandt de bedste inden for branchen og er altid klar
-                    24/7, hvis skaden skulle ramme dig
+                    Vi er et firma med 20 års erfaring indenfor Varme- ventilation og sanitetsteknik, der går meget op
+                    i at levere god kvalitet og tage os af vores kunder. Sammentidig prøver vi så vidt muligt kun at
+                    bruge lokale underleverandøre til vores opgaver. Vi er blandt de bedste inden for branchen og er
+                    altid klar 24/7, hvis skaden skulle ramme dig
                 </div>
                 <button type="button" class="btn btn-primary" onclick="window.location.href='/omOs'">læs mere>></button>
             </div>
@@ -146,7 +149,7 @@
                 <h3>Badeværelse</h3>
                 <p>Løber toilettet, drypper vandhanen, skal vasken udskiftes,
                     eller trænger hele badeværelset til en totalrenovering?
-                    Så er VVS Abrahamsen det oplagte valg.</p>
+                    Så er Abrahamsen det oplagte valg.</p>
             </div>
             <div class="col-md-3 text-center">
                 <div class="icon">
@@ -154,14 +157,14 @@
                 </div>
                 <h3>Køkken Montering</h3>
                 <p> Skal du have et nyt køkken? eller totalrenovering af dit gamle køkken?
-                    Så er VVS Abrahamsen det oplagte valg.</p>
+                    Så er Abrahamsen det oplagte valg.</p>
             </div>
             <div class="col-md-3 text-center">
                 <div class="icon">
                     <i class="fas fa-home"></i>
                 </div>
                 <h3>Ejendomservice</h3>
-                <p>Få en fast aftale med din VVS installatør
+                <p>Få en fast aftale med din Varme- Ventilation og sanitetsteknik installatør
                     Vi håndterer alt fra varmestyring til løbende tjek af anlæg og installationer.
                     Vi udarbejder med glæde et skræddersyet tilbud på jeres ejendom.</p>
             </div>
@@ -182,7 +185,7 @@
 
 <section id="team">
     <div class="container">
-        <h1>Teamet</h1>
+        <h1>Holdet</h1>
         <div class="row">
             <div class="col-md-3 profile-pic text-center">
                 <div class="img-box">
@@ -226,7 +229,7 @@
 
 <section id="contact">
     <div class="container">
-        <h1>Kontakt Os</h1>
+        <h1>Kontakt os</h1>
         <div class="row">
             <div class="col-md-6">
                 <form class="contact-form">
