@@ -53,21 +53,19 @@
 </section>
 
 <br> <br>
-
+<table class="w3-table w3-border-top w3-border-bottom" style="width: 80%">
+    <h1>Galleri</h1>
+    <td class="text" th:text = "${gallery.description} ?: 'None'"></td>
+</table>
 <!-- Grid -->
 <div class="w3-col s11 w3-container w3-cell-row">
-    <div th:each="git: ${gitem}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
-        <img class="w3-image" src="" th:src="@{${'/images/' + git.gitemURL}}" alt="Missing image">
+    <div th:each="git: ${gitem}" class="w3-col w3-card-4 w3-margin s3 w3-center w3-cell w3-mobile w3-button w3-white" style="height: auto; height: 255px">
+        <img class="w3-image" style="max-height: 210px;" src="" th:src="@{${'/images/' + git.gitemURL}}" alt="Missing image">
         <h3 class="w3-card" style="margin-top: 0; backdrop-filter: blur(5px);" th:unless="${git.name} == null" th:text="${git.name}" ></h3>
         <table class="w3-table w3-bordered">
             <td class="tData"><strong>Beskrivelse:</strong></td>
-            <tr>
-                <td class="tData" th:text = "${git.description} ?: 'None'"></td>
-            </tr>
+            <td class="tData" th:text = "${git.description} ?: 'None'"></td>
         </table>
-        <div class="w3-row">
-<!--            Buttons             -->
-        </div>
     </div>
 </div>
 
