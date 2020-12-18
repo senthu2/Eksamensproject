@@ -30,10 +30,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/users">HomeManger</a>
+                    <a class="nav-link" href="/users">Forside manager</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/reperation/reperationIndex">Reperation Liste</a>
+                    <a class="nav-link" href="/reperation/reperationIndex">Reperation liste</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/product/productIndex">Produkt</a>
@@ -45,7 +45,7 @@
                     <a class="nav-link" href="/KontaktInfoManager">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/omOsManager">Om Os</a>
+                    <a class="nav-link" href="/omOsManager">Om os</a>
                 </li>
                 <li class="nav-item" >
                     <a class="nav-link" style="background-color: whitesmoke" th:href="@{/login}">Login</a>
@@ -63,7 +63,7 @@
 <!-- Grid -->
 <div class="w3-col s11 w3-container w3-cell-row">
     <div class="w3-row">
-        <a href="/product/createP">Add New Product Item</a>
+        <a href="/product/createP">Tilføj nyt produkt</a>
     </div>
     <div th:each="pit: ${pitem}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
         <img class="w3-image" src="" th:src="@{${'/images/' + pit.pitemURL}}" alt="Missing image">
@@ -89,7 +89,7 @@
                     </div>
                     <div class="modal-body">
                         <p class="alert alert-danger">
-                            Are you sure?
+                            Er du sikker?
                         </p>
                     </div>
                     <div class="modal-footer">

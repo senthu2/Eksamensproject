@@ -27,10 +27,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/users">HomeManger</a>
+                    <a class="nav-link" href="/users">Forside manager</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/reperation/reperationIndex">Reperation Liste</a>
+                    <a class="nav-link" href="/reperation/reperationIndex">Reperation liste</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/product/productIndex">Produkt</a>
@@ -42,7 +42,7 @@
                     <a class="nav-link" href="/KontaktInfoManager">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/omOsManager">Om Os</a>
+                    <a class="nav-link" href="/omOsManager">Om os</a>
                 </li>
                 <li class="nav-item" >
                     <a class="nav-link" style="background-color: whitesmoke" th:href="@{/login}">Login</a>
@@ -60,7 +60,7 @@
 <!-- Grid -->
 <div class="w3-col s11 w3-container w3-cell-row">
     <div class="w3-row">
-        <a href="/gallery/create">Add New Gallery</a>
+        <a href="/gallery/create">Tilføj nyt gallari</a>
     </div>
     <div th:each="gallery: ${galleries}" class="backg w3-col w3-card-4 w3-margin s2 w3-center w3-cell w3-mobile">
         <img class="w3-image" src="" th:src="@{${'/images/' + gallery.imgURL}}" alt="Missing image">
@@ -83,14 +83,14 @@
 <div class="w3-modal w3-card-4" id="modal">
     <div class="w3-modal-content w3-center w3-round-xxlarge" id="modCont">
         <div class="w3-card w3-pink w3-row">
-            <h1>Are You Sure?</h1>
+            <h1>Er du sikker?</h1>
         </div>
         <div class="w3-row w3-container w3-center">
             <button style="margin: 20px 0px;" class="w3-button w3-red w3-col w3-half" id="confirm" onclick="remove(this.value)">Delete!</button>
             <button style="margin: 20px 0px;" class="w3-button w3-blue w3-col w3-half" id="deny" onclick="$('#modal')[0].style.display='none'">No! Go Back</button>
         </div>
         <div class="row">
-            <p class="w3-text-teal">This Change Is Permanent</p>
+            <p class="w3-text-teal">Denne ændring er permanent</p>
         </div>
     </div>
 </div>
