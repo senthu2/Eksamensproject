@@ -1,9 +1,10 @@
 $(document).ready(function (){
 
-    $('.table .delBtn').on('click',function (event){
+    $('.rBtn').click(function(event){
         event.preventDefault();
-        var href = $(this).attr('href');
-        $('#myModal #delRef').attr('href',href);
-        $('#myModal').modal();
+        var href=$(this).attr('href');
+        $(".myRemove .dBtn").attr('href',href);
+        $('.myRemove #exampleModal').modal();
+
     });
 });

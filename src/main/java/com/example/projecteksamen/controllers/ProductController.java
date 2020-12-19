@@ -77,7 +77,7 @@ public class ProductController {
     public String deleteProduct(@RequestParam int id){
         Product product = productService.fetchById(id);
         productService.delete(product);
-        return "redirect:/gallery/galleryIndex";
+        return "redirect:/product/productIndex";
     }
 
         /*------------------------------------------
